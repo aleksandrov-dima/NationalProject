@@ -6,6 +6,25 @@ using System.Threading.Tasks;
 
 namespace NationalProject.Models {
     static class SampleData {
+
+        public static List<ProjectEntity> ProjectEntitys = new List<ProjectEntity>() {
+            new ProjectEntity {
+                ID = 1,
+                Name = "Здравоохранение",
+                LitleDescription = "Краткое описание"
+            },
+            new ProjectEntity {
+                ID = 2,
+                Name = "Демография",
+                LitleDescription = "Краткое описание"
+            },
+            new ProjectEntity {
+                ID = 3,
+                Name = "Образование",
+                LitleDescription = "Краткое описание"
+            }
+        };
+
         public static List<Order> Orders = new List<Order>() {
             new Order {
                 OrderID = 10248,
