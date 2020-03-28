@@ -7,6 +7,16 @@
     <PlatformTarget></PlatformTarget>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Remove="Properties\PublishProfile\**" />
+    <Compile Remove="wwwroot\map\**" />
+    <Content Remove="Properties\PublishProfile\**" />
+    <Content Remove="wwwroot\map\**" />
+    <EmbeddedResource Remove="Properties\PublishProfile\**" />
+    <EmbeddedResource Remove="wwwroot\map\**" />
+    <None Remove="Properties\PublishProfile\**" />
+    <None Remove="wwwroot\map\**" />
+  </ItemGroup>
+  <ItemGroup>
     <PackageReference Include="DevExtreme.AspNet.Data" Version="2.5.1" />
     <PackageReference Include="DevExtreme.AspNet.Core" Version="19.2.7" />
     <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="3.1.1" />
@@ -16,10 +26,6 @@
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.1" />
     <PackageReference Include="Microsoft.VisualStudio.Web.BrowserLink" Version="2.1.1" />
     <PackageReference Include="BuildBundlerMinifier" Version="2.9.406" />
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Properties\PublishProfile\" />
-    <Folder Include="wwwroot\map\" />
   </ItemGroup>
   <ProjectExtensions>
     <VisualStudio>

@@ -187,8 +187,23 @@
             mosPlacemark = new ymaps.Placemark(mosMarkPosition,
             {
                 balloonContentHeader:
-                    '<div class="balloon-title">Динамика прироста населения</div>' +
-                    '<span class="balloon-description">Статистика за 2020 г.</span',
+                    '<div class="balloon-title">Динамика убыли/роста населения</div>' +
+                    '<span class="balloon-description">Статистика за 2020 г.</span>' +
+                    '<div class="balloon-header">' +
+                        '<span class="balloon-death">Умерло: </span>' +
+                        '<img class="balloon-header image" src="images/map_popup_man.png"/>' +
+                        '<span class="balloon-death">151 </span>' +
+                        '<img class="balloon-header image" src="images/map_popup_woman.png"/>' +
+                        '<span class="balloon-death">111 </span>' +
+                    '</div>' +
+                    '<span class="balloon-description child">Из них старше 60 лет: 98</span>' +
+                    '<div class="balloon-header">' +
+                        '<span class="balloon-born">Родилось: </span>' +
+                        '<img class="balloon-header image" src="images/map_popup_girl.png"/>' +
+                        '<span class="balloon-born">41 </span>' +
+                        '<img class="balloon-header image" src="images/map_popup_boy.png"/>' +
+                        '<span class="balloon-born">59 </span>' +
+                    '</div>',
                 
                 balloonContentBody:
                     '<div class="h-wrapper">' +
@@ -217,11 +232,8 @@
                             '<div class="h-bar down" style="height: 34%"><span>37</span></div>' +
                         '</div>' +
                     '</div>',
-                
-                balloonContentFooter: 'Дополнительная информация:<br/>' +
-                    '<div class="graph_doughnut" id="circles-9" data-proc="74.8" data-color="#ff5722"></div>',
                 hintContent: 'Статистика по московскому району',
-                iconContent: '351'
+                iconContent: '151'
             },
             {
                 iconLayout: 'default#imageWithContent',
@@ -242,8 +254,53 @@
             ),
             leninPlacemark = new ymaps.Placemark(leninMarkPosition,
                 {
+                    balloonContentHeader:
+                    '<div class="balloon-title">Динамика убыли/роста населения</div>' +
+                    '<span class="balloon-description">Статистика за 2020 г.</span>' +
+                    '<div class="balloon-header">' +
+                        '<span class="balloon-death">Умерло: </span>' +
+                        '<img class="balloon-header image" src="images/map_popup_man.png"/>' +
+                        '<span class="balloon-death">103 </span>' +
+                        '<img class="balloon-header image" src="images/map_popup_woman.png"/>' +
+                        '<span class="balloon-death">54 </span>' +
+                    '</div>' +
+                    '<span class="balloon-description child">Из них старше 60 лет: 32</span>' +
+                    '<div class="balloon-header">' +
+                        '<span class="balloon-born">Родилось: </span>' +
+                        '<img class="balloon-header image" src="images/map_popup_girl.png"/>' +
+                        '<span class="balloon-born">84 </span>' +
+                        '<img class="balloon-header image" src="images/map_popup_boy.png"/>' +
+                        '<span class="balloon-born">127 </span>' +
+                    '</div>',
+                
+                    balloonContentBody:
+                    '<div class="h-wrapper">' +
+                        '<div class="h-bars">' +
+                            '<div class="h-bar up" style="height: 5%"><span>15</span></div>' +
+                            '<div class="h-bar up" style="height: 1%"><span>4</span></div>' +
+                            '<div class="h-bar up" style="height: 14%"><span>32</span></div>' +
+                            '<div class="h-bar up" style="height: 46%"><span>94</span></div>' +
+                            '<div class="h-bar up" style="height: 37%"><span>73</span></div>' +
+                            '<div class="h-bar up" style="height: 14%"><span>39</span></div>' +
+                            '<div class="h-bar up" style="height: 18%"><span>37</span></div>' +
+                            '<div class="h-bar up" style="height: 14%"><span>32</span></div>' +
+                        '</div>' +
+                        '<div class="date-wrapper">' +
+                            '<div class="date">1 января</div>' +
+                            '<div class="date">29 марта</div>' +
+                        '</div>' +
+                        '<div class="h-bars reverse">' +
+                            '<div class="h-bar down" style="height: 20%"><span>23</span></div>' +
+                            '<div class="h-bar down" style="height: 37%"><span>48</span></div>' +
+                            '<div class="h-bar down" style="height: 28%"><span>31</span></div>' +
+                            '<div class="h-bar down" style="height: 18%"><span>17</span></div>' +
+                            '<div class="h-bar down" style="height: 27%"><span>29</span></div>' +
+                            '<div class="h-bar down" style="height: 24%"><span>27</span></div>' +
+                            '<div class="h-bar down" style="height: 47%"><span>46</span></div>' +
+                            '<div class="h-bar down" style="height: 14%"><span>37</span></div>' +
+                        '</div>' +
+                    '</div>',
                     hintContent: 'Статистика по ленинскому району',
-                    balloonContent: '',
                     iconContent: '53'
                 },
                 {
@@ -265,8 +322,53 @@
             ),
             calinPlacemark = new ymaps.Placemark(calinMarkPosition,
                 {
+                    balloonContentHeader:
+                    '<div class="balloon-title">Динамика убыли/роста населения</div>' +
+                    '<span class="balloon-description">Статистика за 2020 г.</span>' +
+                    '<div class="balloon-header">' +
+                        '<span class="balloon-death">Умерло: </span>' +
+                        '<img class="balloon-header image" src="images/map_popup_man.png"/>' +
+                        '<span class="balloon-death">151 </span>' +
+                        '<img class="balloon-header image" src="images/map_popup_woman.png"/>' +
+                        '<span class="balloon-death">211 </span>' +
+                    '</div>' +
+                    '<span class="balloon-description child">Из них старше 60 лет: 147</span>' +
+                    '<div class="balloon-header">' +
+                        '<span class="balloon-born">Родилось: </span>' +
+                        '<img class="balloon-header image" src="images/map_popup_girl.png"/>' +
+                        '<span class="balloon-born">231 </span>' +
+                        '<img class="balloon-header image" src="images/map_popup_boy.png"/>' +
+                        '<span class="balloon-born">198 </span>' +
+                    '</div>',
+                
+                balloonContentBody:
+                    '<div class="h-wrapper">' +
+                        '<div class="h-bars">' +
+                            '<div class="h-bar up" style="height: 40%"><span>60</span></div>' +
+                            '<div class="h-bar up" style="height: 37%"><span>56</span></div>' +
+                            '<div class="h-bar up" style="height: 28%"><span>42</span></div>' +
+                            '<div class="h-bar up" style="height: 24%"><span>34</span></div>' +
+                            '<div class="h-bar up" style="height: 77%"><span>89</span></div>' +
+                            '<div class="h-bar up" style="height: 14%"><span>32</span></div>' +
+                            '<div class="h-bar up" style="height: 87%"><span>83</span></div>' +
+                            '<div class="h-bar up" style="height: 44%"><span>64</span></div>' +
+                        '</div>' +
+                        '<div class="date-wrapper">' +
+                            '<div class="date">1 января</div>' +
+                            '<div class="date">29 марта</div>' +
+                        '</div>' +
+                        '<div class="h-bars reverse">' +
+                            '<div class="h-bar down" style="height: 32%"><span>23</span></div>' +
+                            '<div class="h-bar down" style="height: 77%"><span>78</span></div>' +
+                            '<div class="h-bar down" style="height: 28%"><span>31</span></div>' +
+                            '<div class="h-bar down" style="height: 48%"><span>47</span></div>' +
+                            '<div class="h-bar down" style="height: 14%"><span>20</span></div>' +
+                            '<div class="h-bar down" style="height: 87%"><span>87</span></div>' +
+                            '<div class="h-bar down" style="height: 17%"><span>16</span></div>' +
+                            '<div class="h-bar down" style="height: 24%"><span>37</span></div>' +
+                        '</div>' +
+                    '</div>',
                     hintContent: 'Статистика по калининскому району',
-                    balloonContent: '',
                     iconContent: '691'
                 },
                 {
