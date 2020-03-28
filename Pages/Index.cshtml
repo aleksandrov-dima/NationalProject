@@ -3,23 +3,24 @@
 
 <div id="map" style="width: 100%; height: 500px"></div>
 
+
 <div class="menuList">
     @(Html.DevExtreme().List()
         .ID("list")
-        .Grouped(false)
+        .Grouped(true)
         .SearchEnabled(false)
         .SelectionMode(ListSelectionMode.Single)
-        .DataSource(d => d.Mvc().Controller("ActionsOverview").Key("ID").LoadAction("Get"))
-        //.DataSourceOptions(o => o.Group("City").SearchExpr(new[] { "Hotel_Name", "City", "Address" }))
-        .SelectedItems(new[] { SampleData.ProjectEntitys.First() })
-        .ItemTemplate(@<text>
+         .DataSource(d => d.Mvc().Controller("ActionsOverview").Key("ID").LoadAction("Get"))
+          .DataSourceOptions(o => o.Group("ProjectName"))
+         .SelectedItems(new[] { SampleData.ProjectEntitys.First() })
+         .ItemTemplate(@<text>
                     <div>
                         <div class="projectentity">
-                            <div class="name"><%- ProjectName %></div>
+                            <div class="name"><%- Program %></div>
                         </div>
                     </div>
-        </text>)
- .OnSelectionChanged("selectionChanged")
+            </text>)
+           .OnSelectionChanged("selectionChanged")
     )
 </div>
 <div class="listItemContent">
