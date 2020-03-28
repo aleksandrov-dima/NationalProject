@@ -1,53 +1,56 @@
 @page
-@using NationalProject.Models
+<div class="content-block">
+    <div class="proj ">
+        <div class="proj_head">
+            <h2>Национальные проекты Чувашской Республки</h2>
 
-<div class="menuList">
-    @(Html.DevExtreme().List()
-        .ID("list")
-        .Grouped(true)
-        .SearchEnabled(false)
-        .SelectionMode(ListSelectionMode.Single)
-         .DataSource(d => d.Mvc().Controller("ActionsOverview").Key("ID").LoadAction("Get"))
-          .DataSourceOptions(o => o.Group("ProjectName"))
-         .SelectedItems(new[] { SampleData.ProjectEntitys.First() })
-         .ItemTemplate(@<text>
-                    <div>
-                        <div class="projectentity">
-                            <div class="name"><%- Program %></div>
-                        </div>
-                    </div>
-            </text>)
-           .OnSelectionChanged("selectionChanged")
-    )
-</div>
-<div class="listItemContent">
-    <div class="header">
-        <div class="name-container">
-            <div class="name"></div>
         </div>
+
+        <div class="category_list">
+
+            <div class="category_item">
+                <div class="category_img">
+                    <img src="~/images/index/demography1.jpg" alt="" />
+                </div>
+                <div class="category_info">
+                    <div class="category_name">Демография</div>
+                    <div class="category_proj">
+                        <div class="category_proj_item"><a href="/DemographyWomans"> Содействие занятости женщин</a></div>
+                        <div class="category_proj_item"><a href="/DemographyOlds">Старшее поколение</a></div>
+                        <div class="category_proj_item"><a href="#">Проект 3</a></div>
+                    </div>
+                </div>
+            </div>
+            <div class="category_item">
+                <div class="category_img">
+                    <img src="~/images/index/med.jpg" alt="" />
+                </div>
+                <div class="category_info">
+                    <div class="category_name">Здравохранение</div>
+                    <div class="category_proj">
+                        <div class="category_proj_item"><a href="#">Проект 1</a></div>
+                        <div class="category_proj_item"><a href="#">Проект 2</a></div>
+                        <div class="category_proj_item"><a href="#">Проект 3</a></div>
+                    </div>
+                </div>
+            </div>
+            <div class="category_item">
+                <div class="category_img">
+                    <img src="~/images/index/edu.jpg" alt="" />
+                </div>
+                <div class="category_info">
+                    <div class="category_name">Образование</div>
+                    <div class="category_proj">
+                        <div class="category_proj_item"><a href="#">Проект 1</a></div>
+                        <div class="category_proj_item"><a href="#">Проект 2</a></div>
+                        <div class="category_proj_item"><a href="#">Проект 3</a></div>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+
     </div>
-    @(Html.DevExtreme().TileView()
-        .ID("tile")
-        .NoDataText("")
-        .Height(224)
-        .BaseItemHeight(100)
-        .BaseItemWidth(137)
-        .ItemMargin(12)
-        .ItemTemplate(@<text>
-                    <div class="tile-image" style="background-image: url(<%- '../../images/' + FileName %>);"></div>
-        </text>)
-    )
 
-    <div class="description"></div>
 </div>
-
-<script>
-    
-    function selectionChanged(e) {
-        var projectentity = e.addedItems[0];
-        var tile = $("#tile").dxTileView("instance");
-        tile.option("dataSource", projectentity.Images);
-        $(".header .name").text(projectentity.ProjectName);
-        $(".listItemContent .description").text(projectentity.LitleDescription);
-    }
-</script>
