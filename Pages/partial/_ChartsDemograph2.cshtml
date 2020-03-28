@@ -4,7 +4,7 @@
 
 <div class="layout-body content-block" >
     @(Html.DevExtreme().Chart()
-        .ID("chart")
+        .ID("chart2")
         .Animation(true)
         .Palette(VizPalette.HarmonyLight)
         .Title("Продолжительность жизни")
@@ -95,6 +95,6 @@
         .VerticalAlignment(VerticalEdge.Top)
         .HorizontalAlignment(HorizontalAlignment.Center)
     )
-    .DataSource(d => d.Mvc().Controller("Chart").LoadAction("GetComplaintsData"))
+    .DataSource(d => d.Mvc().Controller("ChartsDemograph2").LoadAction("GetComplaintsData"))
     )
 </div>
