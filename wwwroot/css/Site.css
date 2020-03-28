@@ -172,74 +172,74 @@ body, html {
 
 
 /*ListHome*/
-.leftList {
-    float: left;
+.menuList {
+    float: right;
     width: 330px;
     height: 470px;
     padding: 20px;
     background: rgba(191, 191, 191, 0.15);
-    margin-right: 30px;
+    margin-left: 30px;
 }
 
-.rightList {
+.listItemContent {
     overflow: hidden;
 }
 
-.leftList #list .dx-list-group-header {
+.menuList #list .dx-list-group-header {
     color: #f05b41;
     font-weight: normal;
     font-size: 18px;
 }
 
-.leftList #list .projectentity {
-    float: left;
+.menuList #list .projectentity {
+    float: right;
 }
 
-    .leftList #list .projectentity .name {
+    .menuList #list .projectentity .name {
         font-weight: bold;
     }
 
-.rightList .header {
+.listItemContent .header {
     height: 70px;
 }
 
-    .rightList .header .name-container {
-        float: left;
+    .listItemContent .header .name-container {
+        float: right;
     }
 
-    .rightList .header .name {
+    .listItemContent .header .name {
         font-size: 30px;
         font-weight: bold;
     }
 
-    .rightList .header .price-container {
+    .listItemContent .header .price-container {
         padding-top: 27px;
     }
 
 
-.rightList #tile {
+.listItemContent #tile {
     margin: 0 -12px 0 -12px;
 }
 
-.rightList .tile-image {
+.listItemContent .tile-image {
     height: 100%;
     width: 100%;
     background-size: cover;
 }
 
-.rightList .address {
+.listItemContent .address {
     padding-top: 30px;
     font-size: 18px;
     opacity: 0.7;
 }
 
-.rightList .description {
+.listItemContent .description {
     margin: 10px 0;
 }
 
 
 .price-container {
-    float: right;
+    float: left;
     padding-top: 13px;
 }
 
