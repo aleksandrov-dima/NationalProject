@@ -45,7 +45,7 @@
         </div>
         <div class="layout-body layout-body-hidden">
             @(Html.DevExtreme().Drawer()
-                .ID("layout-drawer")
+                .ID("layout-drawer")                
                 .Position(DrawerPosition.Left)
                 .Opened(new JS("NationalProject.restoreDrawerOpened()"))
                 .Content(@<text>
@@ -99,7 +99,7 @@
                 .SelectionMode(NavSelectionMode.Single)
                 .SelectedExpr("selected")
                 .FocusStateEnabled(false)
-                .Width(350)
+                .Width(250)
                 .OnItemClick("NationalProject.onTreeViewItemClick")
             )
         </div>
