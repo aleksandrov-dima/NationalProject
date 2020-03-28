@@ -64,7 +64,7 @@
         var mosPolygon = new ymaps.Polygon(mosCoords, {
             hintContent: "Московский район"
         }, {
-            fillColor: '#2196F388',
+            fillColor: '#FF3D0040',
             strokeColor: '#FFFFFF',
             strokeWidth: 1
         });
@@ -123,7 +123,7 @@
         var calinPolygon = new ymaps.Polygon(calinCoords, {
             hintContent: "Калининский район"
         }, {
-            fillColor: '#2196F388',
+            fillColor: '#43A04740',
             strokeColor: '#FFFFFF',
             strokeWidth: 1
         });
@@ -160,7 +160,7 @@
         var leninPolygon = new ymaps.Polygon(leninCoords, {
             hintContent: "Ленинский район"
         }, {
-            fillColor: '#2196F388',
+            fillColor: '#FDD83540',
             strokeColor: '#FFFFFF',
             strokeWidth: 1
         });
@@ -169,51 +169,78 @@
         yMap.geoObjects.add(calinPolygon);
         yMap.geoObjects.add(leninPolygon);
 
-        // Создаём макет содержимого.
-        var mosMarkPosition = [56.136747, 47.189335];
-        MyIconContentLayout = ymaps.templateLayoutFactory.createClass(
-                '<div style="color: #000000; font-weight: bold;">$[properties.iconContent]</div>'
+        // Московский
+        var mosMarkPosition = [56.143714, 47.183016];
+        mosContentLayout = ymaps.templateLayoutFactory.createClass(
+                '<div text-align="horizontal" style="color: #00000095; display: flex; flex-direction: row; align-items: center;">' +
+                '<img style="width: 12px; height: 12px; margin-right: 2px" src="images/map_arrow_down.png"/>' +
+                '$[properties.iconContent]' +
+                '</div>'
             ),
-
-            myPlacemark = new ymaps.Placemark(mosMarkPosition, {
-                hintContent: 'Собственный значок метки',
-                balloonContent: 'Это красивая метка'
-            }, {
-                // Опции.
-                // Необходимо указать данный тип макета.
-                iconLayout: 'default#image',
-                // Своё изображение иконки метки.
-                iconImageHref: 'images/map_circle.png',
-                // Размеры метки.
-                iconImageSize: [64, 64],
-                // Смещение левого верхнего угла иконки относительно
-                // её "ножки" (точки привязки).
-                iconImageOffset: [-20, -20]
-            }),
-
-            myPlacemarkWithContent = new ymaps.Placemark(mosMarkPosition, {
-                hintContent: 'Собственный значок метки с контентом',
-                balloonContent: 'А эта — новогодняя',
-                iconContent: '12'
-            }, {
-                // Опции.
-                // Необходимо указать данный тип макета.
+            mosPlacemark = new ymaps.Placemark(mosMarkPosition,
+            {
+                hintContent: 'Статистика по демографии',
+                balloonContent: '',
+                iconContent: '351'
+            },
+            {
                 iconLayout: 'default#imageWithContent',
-                // Своё изображение иконки метки.
-                iconImageHref: 'images/ball.png',
-                // Размеры метки.
-                iconImageSize: [48, 48],
-                // Смещение левого верхнего угла иконки относительно
-                // её "ножки" (точки привязки).
+                iconImageHref: 'images/map_circle.png',
+                iconImageSize: [64, 64],
                 iconImageOffset: [0, 0],
-                // Смещение слоя с содержимым относительно слоя с картинкой.
-                iconContentOffset: [0, 0],
-                // Макет содержимого.
-                iconContentLayout: MyIconContentLayout
+                iconContentOffset: [15, 24],
+                iconContentLayout: mosContentLayout
             });
 
+        // Московский
+        var leninMarkPosition = [56.105366, 47.235104];
+        mosContentLayout = ymaps.templateLayoutFactory.createClass(
+                '<div text-align="horizontal" style="color: #00000095; display: flex; flex-direction: row; align-items: center;">' +
+                '<img style="width: 12px; height: 12px; margin-right: 2px" src="images/map_arrow_up.png"/>' +
+                '$[properties.iconContent]' +
+                '</div>'
+            ),
+            leninPlacemark = new ymaps.Placemark(leninMarkPosition,
+                {
+                    hintContent: 'Статистика по демографии',
+                    balloonContent: '',
+                    iconContent: '153'
+                },
+                {
+                    iconLayout: 'default#imageWithContent',
+                    iconImageHref: 'images/map_circle.png',
+                    iconImageSize: [64, 64],
+                    iconImageOffset: [0, 0],
+                    iconContentOffset: [15, 24],
+                    iconContentLayout: mosContentLayout
+                });
+
+        // Московский
+        var calinMarkPosition = [56.126387, 47.311333];
+        mosContentLayout = ymaps.templateLayoutFactory.createClass(
+                '<div text-align="horizontal" style="color: #00000095; display: flex; flex-direction: row; align-items: center;">' +
+                '<img style="width: 12px; height: 12px; margin-right: 2px" src="images/map_arrow_up.png"/>' +
+                '$[properties.iconContent]' +
+                '</div>'
+            ),
+            calinPlacemark = new ymaps.Placemark(calinMarkPosition,
+                {
+                    hintContent: 'Статистика по демографии',
+                    balloonContent: '',
+                    iconContent: '691'
+                },
+                {
+                    iconLayout: 'default#imageWithContent',
+                    iconImageHref: 'images/map_circle.png',
+                    iconImageSize: [64, 64],
+                    iconImageOffset: [0, 0],
+                    iconContentOffset: [15, 24],
+                    iconContentLayout: mosContentLayout
+                });
+
         yMap.geoObjects
-            .add(myPlacemark)
-            .add(myPlacemarkWithContent);
+            .add(calinPlacemark)
+            .add(leninPlacemark)
+            .add(mosPlacemark);
     }
 </script>
