@@ -18,6 +18,12 @@ namespace NationalProject.Controllers
             return View();
         }
 
+        public IActionResult OnGetPartial() => new PartialViewResult
+                    {
+                        ViewName = "_Charts",
+                        ViewData = ViewData,
+                    };
+
         [HttpGet]
         public IEnumerable<object> GetComplaintsData()
         {
