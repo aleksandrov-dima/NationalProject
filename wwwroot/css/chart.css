@@ -11,7 +11,7 @@
 }
 
 .tooltip-body {
-    width: 170px;
+    width: 270px;
 }
 
 .tooltip-body .series-name {
@@ -20,7 +20,7 @@
     display: inline-block;
     line-height: 1.5;
     padding-right: 10px;
-    width: 126px;
+    width: 226px;
 }
 
 .tooltip-body .value-text {

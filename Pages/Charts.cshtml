@@ -23,13 +23,17 @@
                             html: "<div><div class='tooltip-header'>" +
                                     info.argumentText + "</div>" +
                                     "<div class='tooltip-body'><div class='series-name'>" +
-                                        info.points[0].seriesName +
+                                        (info.points[0].seriesName != null ? info.points[0].seriesName : '') +
                                         ":</div><div class='value-text'>" +
-                                        info.points[0].valueText +
+                                        (info.points[0].valueText != null ?info.points[0].valueText:'') +
                                         "</div><div class='series-name'>" +
-                                        info.points[1].seriesName +
-                                        ":</div><div class='value-text'>" +
-                                        info.points[1].valueText +
+                                         (info.points[1] != null ? info.points[1].seriesName  + ":": '') +
+                                        "</div><div class='value-text'>" +
+                                        (info.points[1] != null ?info.points[1].valueText:'') +
+                                        "</div><div class='series-name'>" +
+                                         (info.points[2] != null ? info.points[2].seriesName + ":" : '') +
+                                        "</div><div class='value-text'>" +
+                                        (info.points[2] != null ?info.points[2].valueText:'') +
                                         "</div></div></div>"
                             };
                             }
@@ -40,7 +44,15 @@
     a.Add()
         .Name("budjet")
         .Position(Position.Left)
-        .TickInterval(5);
+        .TickInterval(5)
+        .Label(l => l
+            .CustomizeText(
+                @<text>
+                    function(info) {
+                        return info.valueText + " млн";
+                    }
+                </text>)
+            );
     a.Add()
         .Name("age")
         .Position(Position.Right)
