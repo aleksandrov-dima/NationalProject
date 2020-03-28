@@ -155,7 +155,7 @@ namespace NationalProject.Models {
             new ParetoChartData()
             {
                 year = "2019",
-                budjet = 76.71,
+                budjet = 20.71,
                 factAge = 74.2,
                 planDate = 72,
                 events = "<p><a href=\"#\" target=\"_blank\">События 1</a></p>"+
@@ -165,7 +165,7 @@ namespace NationalProject.Models {
             new ParetoChartData()
             {
                 year = "2020",
-                budjet = 74.33,
+                budjet = 25.33,
                 factAge = null,
                 planDate = 73.83,
                 events = "<p><a href=\"#\" target=\"_blank\">События 1</a></p>"+
@@ -175,7 +175,7 @@ namespace NationalProject.Models {
             new ParetoChartData()
             {
                 year = "2021",
-                budjet = 42.96,
+                budjet = 26.96,
                 factAge = null,
                 planDate = 74.25
             },
@@ -213,34 +213,6 @@ namespace NationalProject.Models {
                 budjet = null,
                 factAge = null,
                 planDate = 76.15
-            },
-            new ParetoChartData()
-            {
-                year = "2027",
-                budjet = null,
-                factAge = null,
-                planDate = 76.5
-            },
-            new ParetoChartData()
-            {
-                year = "2028",
-                budjet = null,
-                factAge = null,
-                planDate = 76.84
-            },
-            new ParetoChartData()
-            {
-                year = "2029",
-                budjet = null,
-                factAge = null,
-                planDate = 77.18
-            },
-            new ParetoChartData()
-            {
-                year = "2030",
-                budjet = null,
-                factAge = null,
-                planDate = 77.51
             }
         };
 
