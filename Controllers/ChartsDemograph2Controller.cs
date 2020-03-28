@@ -7,7 +7,7 @@ using NationalProject.Models;
 
 namespace NationalProject.Controllers
 {
-    public class ChartController : Controller
+    public class ChartsDemograph2Controller : Controller
     {
         public ActionResult ParetoChart()
         {
@@ -20,7 +20,7 @@ namespace NationalProject.Controllers
 
         public IActionResult OnGetPartial() => new PartialViewResult
                     {
-                        ViewName = "_Charts",
+                        ViewName = "_ChartsDemograph2",
                         ViewData = ViewData,
                     };
 
