@@ -32,8 +32,7 @@ namespace NationalProject.Controllers
                     item.year,
                     item.budjet,
                     item.factAge,
-                    item.planDate,
-                    item.events
+                    item.planDate
                 });
             }
 
