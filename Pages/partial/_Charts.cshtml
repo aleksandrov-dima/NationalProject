@@ -39,12 +39,19 @@
                             }
                         </text>)
     )
+    .OnPointClick(@<text>
+        function(e) {
+            var point = e.target;
+            point.showTooltip();
+            @*$("#region").dxSelectBox("option", "value", point.argument);*@
+        }
+    </text>)
     .ValueAxis(a =>
     {
     a.Add()
         .Name("budjet")
-        .Position(Position.Left)
-        .TickInterval(5)
+        .Position(Position.Right)
+        .TickInterval(10)
         .Label(l => l
             .CustomizeText(
                 @<text>
@@ -55,7 +62,7 @@
             );
     a.Add()
         .Name("age")
-        .Position(Position.Right)
+        .Position(Position.Left)
         .ShowZero(false);            
     })
     .CommonSeriesSettings(s => s
@@ -67,7 +74,7 @@
             .Type(SeriesType.Bar)
             .ValueField("budjet")
             .Axis("budjet")
-            .Name("Бюджет, млн/р")
+            .Name("Финансирование, млн/р")
             .Color("#6f42c1");
         s.Add()
             .Type(SeriesType.Spline)
