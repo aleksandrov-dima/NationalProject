@@ -1,7 +1,8 @@
-﻿
+﻿hr {
+    background-color: #BDBDBD;
+}
 .mark {
     color: #000000;
-    opacity: 0.95;
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -104,6 +105,7 @@
     border-bottom-left-radius: 1px;
     border-bottom-right-radius: 1px;
     background-color: #DD2C00;
+    opacity: .8;
 }
 .h-bar.up {
     background-color: #81C784;
@@ -111,7 +113,10 @@
     border-top-right-radius: 1px;
     -webkit-align-self: flex-end;
     align-self: flex-end;
+    position: relative;
+    opacity: .8;
 }
+
 .h-bar.up span {
     display: inline-block;
     position: absolute;
@@ -126,6 +131,7 @@
     color: #757575;
     font-weight: 700;
     font-size: 11px;
+    opacity: 0;
 }
 .h-bar:hover {
     opacity: 1;
@@ -146,4 +152,46 @@ div.h-bar.down span {
     color: #757575;
     font-weight: 700;
     font-size: 11px;
+}
+.my-button {
+    display: inline-block;
+    padding: 3px 5px;
+    background: #eee;
+    border: 1px solid #bbb;
+    border-radius: 3px;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+}
+
+.my-button__text {
+    font-family: 'Arial', sans-serif;
+    font-size: 14px;
+    color: #333;
+    margin-left: 10px;
+}
+
+.my-button__img {
+    padding: 0;
+    margin-bottom: -3px;
+    padding: 4px
+}
+
+.my-button_small .my-button__text {
+    display: none;
+}
+
+.my-button_medium .my-button__img {
+    display: none;
+}
+
+.my-button_large .my-button__text {
+    margin-left: 2px;
+}
+
+.my-button-selected {
+    color: #333333;
+    background-color: #e6e6e6;
+    border: 2px dashed #333;
 }
