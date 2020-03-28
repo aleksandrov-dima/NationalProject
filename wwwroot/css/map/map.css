@@ -23,6 +23,37 @@
     font-weight: 600;
     color: #999;
 }
+.balloon-description.child {
+    font-size: 12px;
+    line-height: 16px;
+    font-weight: 600;
+    color: #616161 !important;
+}
+.balloon-header {
+    margin-top: 16px;
+    display: flex;
+    flex-direction: row;
+    margin-top: 2px;
+    align-items: baseline;
+}
+.balloon-header.image {
+    width: 16px;
+    height: 16px;
+    margin-left: 4px;
+    margin-right: 4px;
+}
+.balloon-death {
+    font-size: 12px;
+    line-height: 16px;
+    font-weight: 600;
+    color: #DD2C00;
+}
+.balloon-born {
+    font-size: 12px;
+    line-height: 16px;
+    font-weight: 600;
+    color: #81C784;
+}
 .h-bars {
     display: -webkit-box;
     display: -webkit-flex;
