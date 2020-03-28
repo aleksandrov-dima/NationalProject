@@ -43,7 +43,7 @@
         <div class="layout-body layout-body-hidden">
             @(Html.DevExtreme().Drawer()
                 .ID("layout-drawer")
-                .Position(DrawerPosition.Left)
+                .Position(DrawerPosition.Right)
                 .Opened(new JS("NationalProject.restoreDrawerOpened()"))
                 .Content(@<text>
                     <div id="layout-drawer-scrollview" class="with-footer">
@@ -82,6 +82,19 @@
                         .Icon("home")
                         .Option("path", Url.Page("Index"))
                         .Selected(IsCurrentPage("Index"));
+
+                    items.Add()
+                        .Text("Демография")
+                        .Icon("info")
+                        .Option("path", Url.Page("Demography"))
+                        .Selected(IsCurrentPage("Demography"));
+
+                    items.Add()
+                        .Text("Содействие занятости женщин")
+                        .Icon("info")
+                        .Option("path", Url.Page("DemographyWomans"))
+                        .Selected(IsCurrentPage("DemographyWomans"));
+
 
                     items.Add()
                         .Text("Карта")
