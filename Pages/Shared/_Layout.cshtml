@@ -89,16 +89,35 @@
                         .Selected(IsCurrentPage("Index"));
 
                     items.Add()
-                        .Text("Демография")
-                        .Icon("info")
-                        .Option("path", Url.Page("Demography"))
-                        .Selected(IsCurrentPage("Demography"));
+                        .Items(subItems => {
+                            subItems.Add()
+                                .Text("Содействие занятости женщин")
+                                .Icon("info")
+                                .Option("path", Url.Page("DemographyWomans"))
+                                .Selected(IsCurrentPage("DemographyWomans"));
 
-                    items.Add()
-                        .Text("Содействие занятости женщин")
-                        .Icon("info")
-                        .Option("path", Url.Page("DemographyWomans"))
-                        .Selected(IsCurrentPage("DemographyWomans"));
+                            subItems.Add()
+                                .Text("Спорт норма жизни")
+                                .Icon("info")
+                                .Option("path", Url.Page("DemographySport"))
+                                .Selected(IsCurrentPage("DemographySport"));
+
+                            subItems.Add()
+                                .Text("Старшее поколение")
+                                .Icon("info")
+                                .Option("path", Url.Page("DemographyOlds"))
+                                .Selected(IsCurrentPage("DemographyOlds"));
+
+                            subItems.Add()
+                                .Text("Укрепление общественного здоровья")
+                                .Icon("info")
+                                .Option("path", Url.Page("DemographyHealth"))
+                                .Selected(IsCurrentPage("DemographyHealth"));
+                        })
+                    .Text("Демография")
+                    .Icon("info")
+                    .Option("path", Url.Page("Demography"))
+                    .Selected(IsCurrentPage("Demography"));
 
 
                     items.Add()
@@ -107,11 +126,12 @@
                         .Option("path", Url.Page("About"))
                         .Selected(IsCurrentPage("About"));
                 })
+                .ExpandNodesRecursive(true)
                 .ExpandEvent(TreeViewExpandEvent.Click)
                 .SelectionMode(NavSelectionMode.Single)
                 .SelectedExpr("selected")
                 .FocusStateEnabled(false)
-                .Width(250)
+                .Width(350)
                 .OnItemClick("NationalProject.onTreeViewItemClick")
             )
         </div>
