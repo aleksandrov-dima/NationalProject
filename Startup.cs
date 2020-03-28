@@ -27,6 +27,7 @@ namespace NationalProject
         {
             services
                 .AddRazorPages()
+                .AddRazorRuntimeCompilation()
                 .AddNewtonsoftJson(options =>
                 {
                     options.SerializerSettings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore;
