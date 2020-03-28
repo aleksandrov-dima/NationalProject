@@ -14,9 +14,6 @@
     <PackageReference Include="Microsoft.VisualStudio.Web.BrowserLink" Version="2.1.1" />
     <PackageReference Include="BuildBundlerMinifier" Version="2.9.406" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="wwwroot\map\" />
-  </ItemGroup>
   <ProjectExtensions>
     <VisualStudio>
       <UserProperties DismissedDevExtremeVersion="19.2.7" TemplateFeatures="NETCORE CS RESPONSIVE" />

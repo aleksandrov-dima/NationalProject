@@ -1,4 +1,118 @@
 ﻿
-.div .mark-arrow {
-
+.mark {
+    color: #000000;
+    opacity: 0.95;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.mark-row {
+    width: 12px;
+    height: 12px;
+    margin-right: 2px
+}
+.balloon-title {
+    color: #424242;
+    font-size: 14px;
+    line-height: 18px;
+    font-weight: 600;
+}
+.balloon-description {
+    font-size: 12px;
+    line-height: 16px;
+    font-weight: 600;
+    color: #999;
+}
+.h-bars {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: flex;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    height: 50px;
+    position: relative;
+}
+.h-bars.reverse {
+    flex-direction: row-reverse;
+}
+.h-wrapper {
+    width: 100%;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    background: #fff;
+}
+.date-wrapper {
+    display: flex;
+    flex-direction: row;
+    -webkit-box-align: center;
+    align-items: center;
+    justify-content: space-between;
+}
+.date {
+    font-size: 11px;
+    line-height: 16px;
+    font-weight: 600;
+    color: #999;
+    font-family: Arial,Helvetica,sans-serif;
+}
+.h-bar {
+    margin-right: 1px;
+    -webkit-flex-shrink: 0;
+    flex-shrink: 0;
+    -webkit-box-flex: 1;
+    -webkit-flex-grow: 1;
+    flex-grow: 1;
+    position: relative;
+    cursor: pointer;
+    -webkit-transition: background-color .1s ease-out,height .1s ease-out;
+    transition: background-color .1s ease-out,height .1s ease-out;
+    min-height: 1px;
+    margin-bottom: 1px;
+}
+.h-bar.down {
+    border-bottom-left-radius: 1px;
+    border-bottom-right-radius: 1px;
+    background-color: #DD2C00;
+}
+.h-bar.up {
+    background-color: #81C784;
+    border-top-left-radius: 1px;
+    border-top-right-radius: 1px;
+    -webkit-align-self: flex-end;
+    align-self: flex-end;
+}
+.h-bar.up span {
+    display: inline-block;
+    position: absolute;
+    top: -10px;
+    display: inline-block;
+    position: absolute;
+    top: -16px;
+    font-size: 12px;
+    width: 100%;
+    text-align: center;
+    opacity: 0;
+    color: #757575;
+    font-weight: 700;
+    font-size: 11px;
+}
+.h-bar:hover {
+    opacity: 1;
+}
+.h-bar:hover span {
+    opacity: 1 !important;
+}
+div.h-bar.down span {
+    display: inline-block;
+    position: absolute;
+    display: inline-block;
+    position: absolute;
+    bottom: -16px;
+    font-size: 12px;
+    width: 100%;
+    text-align: center;
+    opacity: 0;
+    color: #757575;
+    font-weight: 700;
+    font-size: 11px;
 }

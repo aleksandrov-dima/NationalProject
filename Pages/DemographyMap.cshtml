@@ -1,6 +1,12 @@
 @page
 
-<div id="map" style="width: 100%; height: 600px"></div>
+<div class="content-block">
+    <div class="proj_head">
+        <h2>Демографическая карта населения региона</h2>
+        <span class="proj_short">Статистика рождаемости/смертности населения по районам</span>
+    </div>
+    <div id="map" style="width: 100%; height: 600px"></div>
+</div>
 
 <script>
     ymaps.ready(init);
@@ -10,6 +16,7 @@
                 // Координаты центра карты.
                 center: [56.120410, 47.238941],
                 zoom: 12,
+                behaviors: ['default', 'scrollZoom'],
                 controls: [
                     'zoomControl', // Ползунок масштаба
                     'fullscreenControl', // Полноэкранный режим
@@ -172,15 +179,48 @@
         // Московский
         var mosMarkPosition = [56.143714, 47.183016];
         mosContentLayout = ymaps.templateLayoutFactory.createClass(
-                '<div text-align="horizontal" style="color: #00000095; display: flex; flex-direction: row; align-items: center;">' +
-                '<img style="width: 12px; height: 12px; margin-right: 2px" src="images/map_arrow_down.png"/>' +
-                '$[properties.iconContent]' +
+                '<div class="mark">' +
+                    '<img class="mark-row" src="images/map_arrow_down.png"/>' +
+                    '$[properties.iconContent]' +
                 '</div>'
             ),
             mosPlacemark = new ymaps.Placemark(mosMarkPosition,
             {
-                hintContent: 'Статистика по демографии',
-                balloonContent: '',
+                balloonContentHeader:
+                    '<div class="balloon-title">Динамика прироста населения</div>' +
+                    '<span class="balloon-description">Статистика за 2020 г.</span',
+                
+                balloonContentBody:
+                    '<div class="h-wrapper">' +
+                        '<div class="h-bars">' +
+                            '<div class="h-bar up" style="height: 10%"><span>34</span></div>' +
+                            '<div class="h-bar up" style="height: 37%"><span>74</span></div>' +
+                            '<div class="h-bar up" style="height: 28%"><span>67</span></div>' +
+                            '<div class="h-bar up" style="height: 24%"><span>62</span></div>' +
+                            '<div class="h-bar up" style="height: 37%"><span>73</span></div>' +
+                            '<div class="h-bar up" style="height: 14%"><span>39</span></div>' +
+                            '<div class="h-bar up" style="height: 37%"><span>83</span></div>' +
+                            '<div class="h-bar up" style="height: 14%"><span>101</span></div>' +
+                        '</div>' +
+                        '<div class="date-wrapper">' +
+                            '<div class="date">1 января</div>' +
+                            '<div class="date">29 марта</div>' +
+                        '</div>' +
+                        '<div class="h-bars reverse">' +
+                            '<div class="h-bar down" style="height: 20%"><span>23</span></div>' +
+                            '<div class="h-bar down" style="height: 77%"><span>78</span></div>' +
+                            '<div class="h-bar down" style="height: 28%"><span>31</span></div>' +
+                            '<div class="h-bar down" style="height: 48%"><span>47</span></div>' +
+                            '<div class="h-bar down" style="height: 67%"><span>69</span></div>' +
+                            '<div class="h-bar down" style="height: 24%"><span>27</span></div>' +
+                            '<div class="h-bar down" style="height: 47%"><span>46</span></div>' +
+                            '<div class="h-bar down" style="height: 34%"><span>37</span></div>' +
+                        '</div>' +
+                    '</div>',
+                
+                balloonContentFooter: 'Дополнительная информация:<br/>' +
+                    '<div class="graph_doughnut" id="circles-9" data-proc="74.8" data-color="#ff5722"></div>',
+                hintContent: 'Статистика по московскому району',
                 iconContent: '351'
             },
             {
@@ -188,44 +228,44 @@
                 iconImageHref: 'images/map_circle.png',
                 iconImageSize: [64, 64],
                 iconImageOffset: [0, 0],
-                iconContentOffset: [15, 24],
+                iconContentOffset: [13, 23],
                 iconContentLayout: mosContentLayout
             });
 
-        // Московский
+        // Ленинский 
         var leninMarkPosition = [56.105366, 47.235104];
         mosContentLayout = ymaps.templateLayoutFactory.createClass(
-                '<div text-align="horizontal" style="color: #00000095; display: flex; flex-direction: row; align-items: center;">' +
-                '<img style="width: 12px; height: 12px; margin-right: 2px" src="images/map_arrow_up.png"/>' +
-                '$[properties.iconContent]' +
+                '<div class="mark">' +
+                    '<img class="mark-row" src="images/map_arrow_up.png"/>' +
+                    '$[properties.iconContent]' +
                 '</div>'
             ),
             leninPlacemark = new ymaps.Placemark(leninMarkPosition,
                 {
-                    hintContent: 'Статистика по демографии',
+                    hintContent: 'Статистика по ленинскому району',
                     balloonContent: '',
-                    iconContent: '153'
+                    iconContent: '53'
                 },
                 {
                     iconLayout: 'default#imageWithContent',
                     iconImageHref: 'images/map_circle.png',
                     iconImageSize: [64, 64],
                     iconImageOffset: [0, 0],
-                    iconContentOffset: [15, 24],
+                    iconContentOffset: [13, 23],
                     iconContentLayout: mosContentLayout
                 });
 
-        // Московский
+        // Калининский
         var calinMarkPosition = [56.126387, 47.311333];
         mosContentLayout = ymaps.templateLayoutFactory.createClass(
-                '<div text-align="horizontal" style="color: #00000095; display: flex; flex-direction: row; align-items: center;">' +
-                '<img style="width: 12px; height: 12px; margin-right: 2px" src="images/map_arrow_up.png"/>' +
-                '$[properties.iconContent]' +
+                '<div class="mark">' +
+                    '<img class="mark-row" src="images/map_arrow_up.png"/>' +
+                    '$[properties.iconContent]' +
                 '</div>'
             ),
             calinPlacemark = new ymaps.Placemark(calinMarkPosition,
                 {
-                    hintContent: 'Статистика по демографии',
+                    hintContent: 'Статистика по калининскому району',
                     balloonContent: '',
                     iconContent: '691'
                 },
@@ -234,13 +274,25 @@
                     iconImageHref: 'images/map_circle.png',
                     iconImageSize: [64, 64],
                     iconImageOffset: [0, 0],
-                    iconContentOffset: [15, 24],
+                    iconContentOffset: [13, 23],
                     iconContentLayout: mosContentLayout
                 });
 
-        yMap.geoObjects
-            .add(calinPlacemark)
+        // Кластер
+        clusterer = new ymaps.Clusterer({
+            preset: 'islands#nightClusterIcons',
+            groupByCoordinates: false,
+            clusterDisableClickZoom: false,
+            clusterHideIconOnBalloonOpen: false,
+            geoObjectHideIconOnBalloonOpen: false,
+            clusterIconLayout: 'default#pieChart'
+        });
+
+        clusterer
+            .add(mosPlacemark)
             .add(leninPlacemark)
-            .add(mosPlacemark);
+            .add(calinPlacemark);
+
+        yMap.geoObjects.add(clusterer);
     }
 </script>

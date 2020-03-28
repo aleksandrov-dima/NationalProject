@@ -16,6 +16,7 @@
 
     <link rel="stylesheet" href="~/css/vendor.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/css/Site.css" />
+    <link rel="stylesheet" href="css/map/map.css" asp-append-version="true"/>
     <link href="~/css/bootstrap/bootstrap.min.css" rel="stylesheet" />
     <link href="~/css/custom.min.css" rel="stylesheet" />
 
@@ -123,8 +124,8 @@
                     items.Add()
                         .Text("Карта")
                         .Icon("info")
-                        .Option("path", Url.Page("About"))
-                        .Selected(IsCurrentPage("About"));
+                        .Option("path", Url.Page("DemographyMap"))
+                        .Selected(IsCurrentPage("DemographyMap"));
                 })
                 .ExpandNodesRecursive(true)
                 .ExpandEvent(TreeViewExpandEvent.Click)
