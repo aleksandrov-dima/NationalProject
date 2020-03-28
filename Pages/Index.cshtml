@@ -1,10 +1,7 @@
 @page
 @using NationalProject.Models
 
-<div id="map" style="width: 100%; height: 500px"></div>
-
-
-<div class="menuList">
+<div class="leftList">
     @(Html.DevExtreme().List()
         .ID("list")
         .Grouped(true)
@@ -23,7 +20,7 @@
            .OnSelectionChanged("selectionChanged")
     )
 </div>
-<div class="listItemContent">
+<div class="rightList">
     <div class="header">
         <div class="name-container">
             <div class="name"></div>
@@ -45,35 +42,12 @@
 </div>
 
 <script>
-    ymaps.ready(init);
-    function init() {
-        var yMap = new ymaps.Map("map",
-            {
-                // Координаты центра карты.
-                center: [55.76, 37.64],
-                zoom: 12,
-                controls: [
-                    'zoomControl', // Ползунок масштаба
-                    'fullscreenControl', // Полноэкранный режим
-                ]
-            });
-
-        var myPlacemark = new ymaps.Placemark([55.76, 37.64], {
-            // Хинт показывается при наведении мышкой на иконку метки.
-            hintContent: 'Содержимое всплывающей подсказки',
-            // Балун откроется при клике по метке.
-            balloonContent: 'Содержимое балуна'
-        });
- 
-        // После того как метка была создана, добавляем её на карту.
-        yMap.geoObjects.add(myPlacemark);
-    }
-
+    
     function selectionChanged(e) {
         var projectentity = e.addedItems[0];
         var tile = $("#tile").dxTileView("instance");
         tile.option("dataSource", projectentity.Images);
         $(".header .name").text(projectentity.ProjectName);
-        $(".listItemContent .description").text(projectentity.LitleDescription);
+        $(".rightList .description").text(projectentity.LitleDescription);
     }
 </script>
