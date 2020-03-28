@@ -25671,6 +25671,7 @@ input.dx-hidden {
   font-weight: 700;
   src: local('Roboto Bold'), local('Roboto-Bold'), url(devextreme/fonts/Roboto-700.woff2) format('woff2'), url(devextreme/fonts/Roboto-700.woff) format('woff'), url(devextreme/fonts/Roboto-700.ttf) format('truetype');
 }
+
 .dx-swatch-additional {
     background-color: #363640;
     color: #fff;
