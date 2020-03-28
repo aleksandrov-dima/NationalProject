@@ -14,24 +14,26 @@
         <div class="section">
             <div class="row">
                 <div class="col-4">
-                    <div class="graph_item">
-                        <div class="graph_doughnut" id="circles-1" data-proc="61.8" data-key="лет" data-color="#ff5722"></div>
-                        <div class="graph_desc">БЫЛО: 61,8 лет</div>
-                    </div>
+                    <div class="year_item">
+                        было: <span>61,8 лет</span> 
+                    </div>                    
                 </div>
                 <div class="col-4">
-                    <div class="graph_item">
-                        <div class="graph_doughnut" id="circles-2" data-proc="65" data-key="лет" data-color="blue"></div>
-                        <div class="graph_desc">СЕЙЧАС: 65 лет</div>
-                    </div>
+                    <div class="year_item">
+                        сегодня: <span>65 лет</span>
+                    </div>                 
                 </div>
                 <div class="col-4">
-                    <div class="graph_item">
-                        <div class="graph_doughnut" id="circles-3" data-proc="67" data-key="лет" data-color="green"></div>
-                        <div class="graph_desc">ЦЕЛЬ: 67 лет</div>
+                    <div class="year_item">
+                        цель: <span>67 лет</span>
                     </div>
                 </div>
             </div>
         </div>
+        <div class="section">
+            @await Html.PartialAsync("_Charts", ViewData)
+        </div>
     </div>
 </div>
+
+    @Html.Partial("partial/news")

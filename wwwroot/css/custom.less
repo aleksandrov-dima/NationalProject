@@ -141,3 +141,58 @@
         }
     }
 }
+
+.year_item{
+    font-size:21px;
+    font-style:italic;
+    text-align:center;
+    span{
+        font-size:32px;
+        font-style:normal;
+        color:@orange;
+       font-weight:bold
+    }
+}
+
+.news-block {
+    position: relative;
+    margin: 50px 0;
+
+    &:before {
+        content: '';
+        height: 1px;
+        width: 60px;
+        background-color: #363640;
+        display: inline-block;
+        position: absolute;
+        top: 0;
+        left: calc(50% - 30px);
+        margin-bottom: 20px;
+    }
+
+    .news_head {
+        padding: 25px 0 0;
+        text-align: left;
+        margin-bottom: 20px;
+    }
+}
+.news_item {
+    margin-bottom: 30px;
+
+    .news_date {
+        float: left;
+        font-weight: 300;
+        font-size: 14px;
+        position: relative;
+        top: 2px;
+    }
+
+    .news_info {
+        padding-left: 100px;
+        max-width: 700px;
+
+        a {
+            color: rgba(0, 0, 0, 0.87);
+        }
+    }
+}
