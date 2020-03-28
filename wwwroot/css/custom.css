@@ -1,5 +1,52 @@
-﻿
-.form {
-    width: 40%;
-    height: 40%
+﻿.proj_head {
+  text-align: center;
+  padding: 0 0 40px;
+}
+.proj_head .proj_short {
+  position: relative;
+  padding: 13px 0 0;
+  margin: 16px 0 0;
+  display: block;
+}
+.proj_head .proj_short:before {
+  content: '';
+  height: 2px;
+  width: 60px;
+  background-color: #363640;
+  display: inline-block;
+  position: absolute;
+  top: 0;
+  left: calc(50% -30px);
+}
+.feature_list {
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: -15px;
+  margin-right: -15px;
+}
+.feature_list .feature_item {
+  flex-grow: 1;
+  width: 33%;
+  height: 100px;
+  padding: 15px;
+  margin-bottom: 30px;
+}
+.feature_item .key {
+  font-size: 12px;
+  line-height: 11px;
+  margin-bottom: 9px;
+  color: rgba(0, 0, 0, 0.5);
+  font-family: 'Roboto Mono', monospace;
+}
+.section {
+  margin-bottom: 40px;
+}
+.section > h3 {
+  text-align: center;
+}
+.graph_item {
+  text-align: center;
+}
+.graph_item .graph_desc {
+  margin: 6px 0 0;
 }

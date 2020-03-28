@@ -16,6 +16,9 @@
 
     <link rel="stylesheet" href="~/css/vendor.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/css/Site.css" />
+    <link href="~/css/bootstrap/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/css/custom.min.css" rel="stylesheet" />
+
     <script src="~/js/vendor.js" asp-append-version="true"></script>
     <script src="https://api-maps.yandex.ru/2.1/?apikey=acaff0f4-1947-4765-b693-cbd071fcfba4&lang=ru_RU" type="text/javascript" asp-append-version="true"></script>
 </head>
@@ -53,7 +56,7 @@
                         <div class="content-block">
                             <div class="content-footer">
                                 <div id="footer">
-                                    
+
                                 </div>
                             </div>
                         </div>
@@ -64,11 +67,13 @@
         </div>
     </div>
 
-    @using(Html.DevExtreme().NamedTemplate("navigation-menu")) {
+    @using (Html.DevExtreme().NamedTemplate("navigation-menu"))
+    {
         <div class="menu-container dx-swatch-additional">
 
             @functions{
-                bool IsCurrentPage(string pageName) {
+                bool IsCurrentPage(string pageName)
+                {
                     var pageUrl = Url.Page(pageName);
                     var currentPageUrl = Url.Page(ViewContext.RouteData.Values["page"].ToString());
                     return pageUrl == currentPageUrl;
@@ -114,7 +119,7 @@
 
     <script>
 
-        var NationalProject = (function() {
+        var NationalProject = (function () {
 
             var DRAWER_OPENED_KEY = "NationalProject-drawer-opened";
 
@@ -131,11 +136,11 @@
 
             function restoreDrawerOpened() {
                 var isLarge = breakpoints.largeMedia.matches;
-                if(!isLarge)
+                if (!isLarge)
                     return false;
 
                 var state = sessionStorage.getItem(DRAWER_OPENED_KEY);
-                if(state === null)
+                if (state === null)
                     return isLarge;
 
                 return state === "true";
@@ -160,9 +165,9 @@
             function init() {
                 $("#layout-drawer-scrollview").dxScrollView({ direction: "vertical" });
 
-                $.each(breakpoints, function(_, size) {
-                    size.addListener(function(e) {
-                        if(e.matches)
+                $.each(breakpoints, function (_, size) {
+                    size.addListener(function (e) {
+                        if (e.matches)
                             updateDrawer();
                     });
                 });
@@ -173,8 +178,8 @@
             }
 
             function navigate(url, delay) {
-                if(url)
-                    setTimeout(function() { location.href = url }, delay);
+                if (url)
+                    setTimeout(function () { location.href = url }, delay);
             }
 
             function onMenuButtonClick() {
@@ -187,16 +192,16 @@
                 var savedOpened = restoreDrawerOpened();
                 var actualOpened = drawer.option("opened");
 
-                if(!actualOpened) {
+                if (!actualOpened) {
                     drawer.show();
                 } else {
                     var willHide = !savedOpened || !breakpoints.largeMedia.matches;
                     var willNavigate = !e.itemData.selected;
 
-                    if(willHide)
+                    if (willHide)
                         drawer.hide();
 
-                    if(willNavigate)
+                    if (willNavigate)
                         navigate(e.itemData.path, willHide ? 400 : 0);
                 }
             }
@@ -214,6 +219,9 @@
             NationalProject.init();
         });
     </script>
+    <script src="~/js/main.js"></script>
+
+    <script src="~/js/library/circles-master/circles.min.js"></script>
 </body>
 
 </html>
