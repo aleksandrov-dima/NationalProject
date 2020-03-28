@@ -1,53 +1,11 @@
 @page
-@using NationalProject.Models
+<div class="content-block">
+    <div class="proj ">
+        <div class="proj_head">
+            <h2>Главная</h2>
 
-<div class="menuList">
-    @(Html.DevExtreme().List()
-        .ID("list")
-        .Grouped(true)
-        .SearchEnabled(false)
-        .SelectionMode(ListSelectionMode.Single)
-         .DataSource(d => d.Mvc().Controller("ActionsOverview").Key("ID").LoadAction("Get"))
-          .DataSourceOptions(o => o.Group("ProjectName"))
-         .SelectedItems(new[] { SampleData.ProjectEntitys.First() })
-         .ItemTemplate(@<text>
-                    <div>
-                        <div class="projectentity">
-                            <div class="name"><%- Program %></div>
-                        </div>
-                    </div>
-            </text>)
-           .OnSelectionChanged("selectionChanged")
-    )
-</div>
-<div class="listItemContent">
-    <div class="header">
-        <div class="name-container">
-            <div class="name"></div>
         </div>
+
     </div>
-    @(Html.DevExtreme().TileView()
-        .ID("tile")
-        .NoDataText("")
-        .Height(224)
-        .BaseItemHeight(100)
-        .BaseItemWidth(137)
-        .ItemMargin(12)
-        .ItemTemplate(@<text>
-                    <div class="tile-image" style="background-image: url(<%- '../../images/' + FileName %>);"></div>
-        </text>)
-    )
 
-    <div class="description"></div>
 </div>
-
-<script>
-    
-    function selectionChanged(e) {
-        var projectentity = e.addedItems[0];
-        var tile = $("#tile").dxTileView("instance");
-        tile.option("dataSource", projectentity.Images);
-        $(".header .name").text(projectentity.ProjectName);
-        $(".listItemContent .description").text(projectentity.LitleDescription);
-    }
-</script>

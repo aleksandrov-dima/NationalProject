@@ -37,7 +37,7 @@
                         .Location(ToolbarItemLocation.Before)
                         .CssClass("menu-button");
                     items.Add()
-                        .Html("<div>НацПроекты</div>")
+                        .Html("<div>Национальные Проекты</div>")
                         .Location(ToolbarItemLocation.Before)
                         .CssClass("header-title");
                 })
@@ -46,7 +46,7 @@
         <div class="layout-body layout-body-hidden">
             @(Html.DevExtreme().Drawer()
                 .ID("layout-drawer")
-                .Position(DrawerPosition.Right)
+                .Position(DrawerPosition.Left)
                 .Opened(new JS("NationalProject.restoreDrawerOpened()"))
                 .Content(@<text>
                     <div id="layout-drawer-scrollview" class="with-footer">
@@ -87,39 +87,7 @@
                         .Icon("home")
                         .Option("path", Url.Page("Index"))
                         .Selected(IsCurrentPage("Index"));
-
-                    items.Add()
-                        .Items(subItems => {
-                            subItems.Add()
-                                .Text("Содействие занятости женщин")
-                                .Icon("info")
-                                .Option("path", Url.Page("DemographyWomans"))
-                                .Selected(IsCurrentPage("DemographyWomans"));
-
-                            subItems.Add()
-                                .Text("Спорт норма жизни")
-                                .Icon("info")
-                                .Option("path", Url.Page("DemographySport"))
-                                .Selected(IsCurrentPage("DemographySport"));
-
-                            subItems.Add()
-                                .Text("Старшее поколение")
-                                .Icon("info")
-                                .Option("path", Url.Page("DemographyOlds"))
-                                .Selected(IsCurrentPage("DemographyOlds"));
-
-                            subItems.Add()
-                                .Text("Укрепление общественного здоровья")
-                                .Icon("info")
-                                .Option("path", Url.Page("DemographyHealth"))
-                                .Selected(IsCurrentPage("DemographyHealth"));
-                        })
-                    .Text("Демография")
-                    .Icon("info")
-                    .Option("path", Url.Page("Demography"))
-                    .Selected(IsCurrentPage("Demography"));
-
-
+                       
                     items.Add()
                         .Text("Карта")
                         .Icon("info")
