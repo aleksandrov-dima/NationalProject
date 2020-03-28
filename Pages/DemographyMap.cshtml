@@ -11,6 +11,10 @@
 <script>
     ymaps.ready(init);
     function init() {
+        if (yMap) {
+            yMap.destroy();
+        }
+
         var yMap = new ymaps.Map("map",
             {
                 // Координаты центра карты.

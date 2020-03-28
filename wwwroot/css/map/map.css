@@ -1,4 +1,6 @@
-﻿
+﻿hr {
+    background-color: #BDBDBD;
+}
 .mark {
     color: #000000;
     display: flex;
