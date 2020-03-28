@@ -31,9 +31,9 @@
                                         "</div><div class='value-text'>" +
                                         (info.points[1] != null ?info.points[1].valueText:'') +
                                         "</div><div class='series-name'>" +
-                                         (info.points[3] != null ? info.points[3].seriesName + ":" : '') +
+                                         (info.points[2] != null ? info.points[2].seriesName + ":" : '') +
                                         "</div><div class='value-text'>" +
-                                        (info.points[3] != null ?info.points[3].valueText:'') +
+                                        (info.points[2] != null ?info.points[2].valueText:'') +
                                         "</div></div></div>"
                             };
                             }
@@ -80,13 +80,6 @@
             .ValueField("planDate")
             .Axis("age")
             .Name("Планируемый показатель, возраст")
-            .Color("#fac29a");
-        s.Add()
-            .Type(SeriesType.Line)
-            .ValueField("events")
-            .Axis("age")
-            .Visible(true)
-            .Name("События")
             .Color("#fac29a");
     })
     .Legend(l => l
