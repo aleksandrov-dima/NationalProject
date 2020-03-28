@@ -32,6 +32,7 @@ namespace NationalProject
                     options.SerializerSettings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore;
                     options.SerializerSettings.ContractResolver = new DefaultContractResolver();
                 });
+            services.Configure<IISOptions>(options => options.AutomaticAuthentication = false);
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
