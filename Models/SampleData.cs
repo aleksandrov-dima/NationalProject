@@ -158,9 +158,8 @@ namespace NationalProject.Models {
                 budjet = 20.71,
                 factAge = 74.2,
                 planDate = 72,
-                events = "<p><a href=\"#\" target=\"_blank\">События 1</a></p>"+
-                         "<p><a href=\"#\" target=\"_blank\">События 2</a></p>"+
-                         "<p><a href=\"#\" target=\"_blank\">События 3 </a></p>"
+                events = "<a href=\"http://minec.cap.ru/news/2019/04/11/priglashaem-organizacii-chuvashskoj-respubliki-pri\">События 1</a>"+
+                         "<a href=\"http://minec.cap.ru/news/2019/04/13/problemi-razvitiya-malogo-i-srednego-biznesa-obsuz\">События 2</a>"
             },
             new ParetoChartData()
             {

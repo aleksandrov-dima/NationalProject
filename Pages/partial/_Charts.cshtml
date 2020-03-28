@@ -13,30 +13,31 @@
                 .OverlappingBehavior(OverlappingBehavior.Stagger)
             )
         )
+        .Export(e => e.Enabled(true))
         .Tooltip(t => t
-            .Enabled(true)
-            .Shared(true)
+            .Enabled(false)
             .CustomizeTooltip(
                         @<text>
                             function(info) {
-                            console.info(info);
                             return {
                             html: "<div><div class='tooltip-header'>" +
                                     info.argumentText + "</div>" +
                                     "<div class='tooltip-body'><div class='series-name'>" +
-                                        (info.points[0].seriesName != null ? info.points[0].seriesName : '') +
-                                        ":</div><div class='value-text'>" +
-                                        (info.points[0].valueText != null ?info.points[0].valueText:'') +
-                                        "</div><div class='series-name'>" +
-                                         (info.points[1] != null ? info.points[1].seriesName  + ":": '') +
+                                        "Финансирование: " +
                                         "</div><div class='value-text'>" +
-                                        (info.points[1] != null ?info.points[1].valueText:'') +
+                                        (info.point.data.budjet != null ?info.point.data.budjet:'') +
+
                                         "</div><div class='series-name'>" +
-                                         (info.points[2] != null ? info.points[2].seriesName + ":" : '') +
+                                         "Сейчас: " +
                                         "</div><div class='value-text'>" +
-                                        (info.points[2] != null ?info.points[2].valueText:'') +
-                                        @*"<span class='caption'>События</span>: <%- info.data.Capital %>"*@
-                                        "</div></div></div>"
+                                        (info.point.data.factAge != null ?info.point.data.factAge:'') +
+
+                                        "</div><div class='series-name'>" +
+                                         "Планируется: " +
+                                        "</div><div class='value-text'>" +
+                                        (info.point.data.planDate != null ?info.point.data.planDate:'') +                                        
+                                        "</div>" +
+                                        "</div></div>"
                             };
                             }
                         </text>)
@@ -44,8 +45,41 @@
     .OnPointClick(@<text>
         function(e) {
             var point = e.target;
-            point.showTooltip();
-            @*$("#region").dxSelectBox("option", "value", point.argument);*@
+            var popup = $("#popup").dxPopup(
+                                   {
+                                                    width: 300,
+                                                    height: 250,
+                                                    contentTemplate: function() {
+                                                        return $("<div />").append(
+                                                            $("<p>События: <span>" + point.data.events +
+                                                                "</span></p>"),
+                                                                                     
+                                                     $("<div><div class='series-name'>" +
+                                                                "Финансирование: " +
+                                                                "</div><div class='value-text'>" +
+                                                                (point.data.budjet != null ?point.data.budjet:'') +
+
+                                                                "</div><div class='series-name'>" +
+                                                                 "Сейчас: " +
+                                                                "</div><div class='value-text'>" +
+                                                                (point.data.factAge != null ?point.data.factAge:'') +
+
+                                                                "</div><div class='series-name'>" +
+                                                                 "Планируется: " +
+                                                                "</div><div class='value-text'>" +
+                                                                (point.data.planDate != null ?point.data.planDate:'') +                                        
+                                                                "</div></div>")
+                                                        );
+                                                    },
+                                                    showTitle: true,
+                                                    title: "Information",
+                                                    visible: false,
+                                                    dragEnabled: false,
+                                                    closeOnOutsideClick: true
+                                            }         
+            ).dxPopup("instance");
+
+            popup.show();
         }
     </text>)
     .ValueAxis(a =>
@@ -98,3 +132,4 @@
     .DataSource(d => d.Mvc().Controller("Chart").LoadAction("GetComplaintsData"))
     )
 </div>
+<div id="popup"></div>
