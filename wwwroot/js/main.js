@@ -1,5 +1,8 @@
-﻿$(document).ready(function () {
-    //груглый график
+﻿$('#layout-drawer-scrollview').on('load scroll', function () {
+    console.log('scroll');
+});
+$(document).ready(function () {
+    //круглый график
 
     $('.graph_doughnut').each(function () {
         var $id_attr = $(this).attr('id');
@@ -15,7 +18,7 @@
             colors: ['#e6e6e6', $obj.getAttribute('data-color')],//colors[i - 1],
             styleText: false
         });
-        console.log(circle);
+        
 
     });
 });
