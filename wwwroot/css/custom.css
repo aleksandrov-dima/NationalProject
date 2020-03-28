@@ -106,3 +106,13 @@
   text-decoration: none;
   color: #fff;
 }
+.year_item {
+  font-size: 21px;
+  font-style: italic;
+}
+.year_item span {
+  font-size: 32px;
+  font-style: normal;
+  color: #ff5722;
+  font-weight: bold;
+}
