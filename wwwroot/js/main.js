@@ -2,8 +2,8 @@
     console.log('scroll');
 });
 $(document).ready(function () {
-    //круглый график
 
+    //круглый график
     $('.graph_doughnut').each(function () {
         var $id_attr = $(this).attr('id');
         var $obj = document.getElementById($id_attr);
@@ -21,4 +21,9 @@ $(document).ready(function () {
         
 
     });
+
+    //news read xml
+    var url = 'http://minec.cap.ru/rss?type=news&action=9158ce83-0531-4e21-a4b1-6ed753a1e274';
+    
+
 });
