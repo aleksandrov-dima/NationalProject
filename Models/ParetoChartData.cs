@@ -11,6 +11,5 @@ namespace NationalProject.Models
         public double? budjet { get; set; }
         public double? factAge { get; set; }
         public double? planDate { get; set; }
-        public string events { get; set; }
     }
 }
