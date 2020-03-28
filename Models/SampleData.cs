@@ -96,21 +96,26 @@ namespace NationalProject.Models {
                 year = "2012",
                 budjet = null,
                 factAge = 70.3,
-                planDate = null
+                planDate = null,
+                events = "<p><a href=\"#\" target=\"_blank\">Майские указы</a></p>"+
+                         "<p><a href=\"#\" target=\"_blank\">Майские указы 2</a></p>"+
+                         "<p><a href=\"#\" target=\"_blank\">Июнские указы </a></p>"
             },
             new ParetoChartData()
             {
                 year = "2013",
                 budjet = null,
                 factAge = 70.8,
-                planDate = null
+                planDate = null,
+                events = "<p><a href=\"#\" target=\"_blank\">Майские указы</a></p>"
             },
             new ParetoChartData()
             {
                 year = "2014",
                 budjet = null,
                 factAge = 70.62,
-                planDate = null
+                planDate = null,
+
             },
             new ParetoChartData()
             {
@@ -124,35 +129,48 @@ namespace NationalProject.Models {
                 year = "2016",
                 budjet = 10,
                 factAge = 71.52,
-                planDate = null
+                planDate = null,
+                events = "<p><a href=\"#\" target=\"_blank\">События 1</a></p>"+
+                         "<p><a href=\"#\" target=\"_blank\">События 2</a></p>"+
+                         "<p><a href=\"#\" target=\"_blank\">События 3 </a></p>"
             },
             new ParetoChartData()
             {
                 year = "2017",
                 budjet = 11,
                 factAge = 72.73,
-                planDate = 68
+                planDate = 68,
+                events = "<p><a href=\"#\" target=\"_blank\">События 1</a></p>"+
+                         "<p><a href=\"#\" target=\"_blank\">События 2</a></p>"+
+                         "<p><a href=\"#\" target=\"_blank\">События 3 </a></p>"
             },
             new ParetoChartData()
             {
                 year = "2018",
                 budjet = 12,
                 factAge = 73.5,
-                planDate = 70
+                planDate = 70,
+                events = "<p><a href=\"#\" target=\"_blank\">События 1</a></p>"
             },
             new ParetoChartData()
             {
                 year = "2019",
                 budjet = 76.71,
                 factAge = 74.2,
-                planDate = 72
+                planDate = 72,
+                events = "<p><a href=\"#\" target=\"_blank\">События 1</a></p>"+
+                         "<p><a href=\"#\" target=\"_blank\">События 2</a></p>"+
+                         "<p><a href=\"#\" target=\"_blank\">События 3 </a></p>"
             },
             new ParetoChartData()
             {
                 year = "2020",
                 budjet = 74.33,
                 factAge = null,
-                planDate = 73.83
+                planDate = 73.83,
+                events = "<p><a href=\"#\" target=\"_blank\">События 1</a></p>"+
+                         "<p><a href=\"#\" target=\"_blank\">События 2</a></p>"+
+                         "<p><a href=\"#\" target=\"_blank\">События 3 </a></p>"
             },
             new ParetoChartData()
             {

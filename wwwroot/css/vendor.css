@@ -25672,12 +25672,12 @@ input.dx-hidden {
   src: local('Roboto Bold'), local('Roboto-Bold'), url(devextreme/fonts/Roboto-700.woff2) format('woff2'), url(devextreme/fonts/Roboto-700.woff) format('woff'), url(devextreme/fonts/Roboto-700.ttf) format('truetype');
 }
 .dx-swatch-additional {
-  background-color: #363640;
-  color: #fff;
-  font-weight: normal;
-  font-size: 14px;
-  font-family: "Roboto", "RobotoFallback", "Helvetica", "Arial", sans-serif;
-  line-height: 1.2857;
+    background-color: #bdbdc2;
+    color: #fff;
+    font-weight: normal;
+    font-size: 14px;
+    font-family: "Roboto", "RobotoFallback", "Helvetica", "Arial", sans-serif;
+    line-height: 1.2857;
 }
 .dx-swatch-additional input,
 .dx-swatch-additional textarea {
