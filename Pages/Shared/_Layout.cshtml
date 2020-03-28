@@ -53,9 +53,7 @@
                         <div class="content-block">
                             <div class="content-footer">
                                 <div id="footer">
-                                    Copyright (c) 2000-2019 Developer Express Inc.
-                                    <br />
-                                    All trademarks or registered trademarks are property of their respective owners.
+                                    
                                 </div>
                             </div>
                         </div>
@@ -80,13 +78,13 @@
             @(Html.DevExtreme().TreeView()
                 .Items(items => {
                     items.Add()
-                        .Text("Home")
+                        .Text("Главная")
                         .Icon("home")
                         .Option("path", Url.Page("Index"))
                         .Selected(IsCurrentPage("Index"));
 
                     items.Add()
-                        .Text("About")
+                        .Text("Карта")
                         .Icon("info")
                         .Option("path", Url.Page("About"))
                         .Selected(IsCurrentPage("About"));

@@ -3,7 +3,7 @@
 
 <div id="map" style="width: 100%; height: 500px"></div>
 
-<div class="leftList">
+<div class="menuList">
     @(Html.DevExtreme().List()
         .ID("list")
         .Grouped(false)
@@ -22,7 +22,7 @@
  .OnSelectionChanged("selectionChanged")
     )
 </div>
-<div class="rightList">
+<div class="listItemContent">
     <div class="header">
         <div class="name-container">
             <div class="name"></div>
@@ -73,6 +73,6 @@
         var tile = $("#tile").dxTileView("instance");
         tile.option("dataSource", projectentity.Images);
         $(".header .name").text(projectentity.ProjectName);
-        $(".rightList .description").text(projectentity.LitleDescription);
+        $(".listItemContent .description").text(projectentity.LitleDescription);
     }
 </script>
