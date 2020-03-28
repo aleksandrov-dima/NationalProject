@@ -20,7 +20,7 @@
  .OnSelectionChanged("selectionChanged")
     )
 </div>
-<div class="rightList">
+<div class="listItemContent">
     <div class="header">
         <div class="name-container">
             <div class="name"></div>
@@ -48,6 +48,6 @@
         var tile = $("#tile").dxTileView("instance");
         tile.option("dataSource", projectentity.Images);
         $(".header .name").text(projectentity.ProjectName);
-        $(".rightList .description").text(projectentity.LitleDescription);
+        $(".listItemContent .description").text(projectentity.LitleDescription);
     }
 </script>
