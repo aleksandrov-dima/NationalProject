@@ -1,0 +1,98 @@
+@page
+
+<link rel="stylesheet" href="~/css/chart.css" />
+
+<div class="layout-body content-block" >
+    @(Html.DevExtreme().Chart()
+        .ID("chart")
+        .Animation(true)
+        .Palette(VizPalette.HarmonyLight)
+        .Title("Продолжительность жизни")
+        .ArgumentAxis(a => a
+            .Label(l => l
+                .OverlappingBehavior(OverlappingBehavior.Stagger)
+            )
+        )
+        .Tooltip(t => t
+            .Enabled(true)
+            .Shared(true)
+            .CustomizeTooltip(
+                        @<text>
+                            function(info) {
+                            return {
+                            html: "<div><div class='tooltip-header'>" +
+                                    info.argumentText + "</div>" +
+                                    "<div class='tooltip-body'><div class='series-name'>" +
+                                        (info.points[0].seriesName != null ? info.points[0].seriesName : '') +
+                                        ":</div><div class='value-text'>" +
+                                        (info.points[0].valueText != null ?info.points[0].valueText:'') +
+                                        "</div><div class='series-name'>" +
+                                         (info.points[1] != null ? info.points[1].seriesName  + ":": '') +
+                                        "</div><div class='value-text'>" +
+                                        (info.points[1] != null ?info.points[1].valueText:'') +
+                                        "</div><div class='series-name'>" +
+                                         (info.points[3] != null ? info.points[3].seriesName + ":" : '') +
+                                        "</div><div class='value-text'>" +
+                                        (info.points[3] != null ?info.points[3].valueText:'') +
+                                        "</div></div></div>"
+                            };
+                            }
+                        </text>)
+    )
+    .ValueAxis(a =>
+    {
+    a.Add()
+        .Name("budjet")
+        .Position(Position.Left)
+        .TickInterval(5)
+        .Label(l => l
+            .CustomizeText(
+                @<text>
+                    function(info) {
+                        return info.valueText + " млн";
+                    }
+                </text>)
+            );
+    a.Add()
+        .Name("age")
+        .Position(Position.Right)
+        .ShowZero(false);            
+    })
+    .CommonSeriesSettings(s => s
+        .ArgumentField("year")
+    )
+    .Series(s =>
+                            {
+        s.Add()
+            .Type(SeriesType.Bar)
+            .ValueField("budjet")
+            .Axis("budjet")
+            .Name("Бюджет, млн/р")
+            .Color("#6f42c1");
+        s.Add()
+            .Type(SeriesType.Spline)
+            .ValueField("factAge")
+            .Axis("age")
+            .Name("Фактический показатель, возраст")
+            .Color("#6b71c3");
+        s.Add()
+            .Type(SeriesType.Spline)
+            .ValueField("planDate")
+            .Axis("age")
+            .Name("Планируемый показатель, возраст")
+            .Color("#fac29a");
+        s.Add()
+            .Type(SeriesType.Line)
+            .ValueField("events")
+            .Axis("age")
+            .Visible(true)
+            .Name("События")
+            .Color("#fac29a");
+    })
+    .Legend(l => l
+        .VerticalAlignment(VerticalEdge.Top)
+        .HorizontalAlignment(HorizontalAlignment.Center)
+    )
+    .DataSource(d => d.Mvc().Controller("Chart").LoadAction("GetComplaintsData"))
+    )
+</div>

@@ -45,7 +45,7 @@
         </div>
         <div class="layout-body layout-body-hidden">
             @(Html.DevExtreme().Drawer()
-                .ID("layout-drawer")
+                .ID("layout-drawer")                
                 .Position(DrawerPosition.Left)
                 .Opened(new JS("NationalProject.restoreDrawerOpened()"))
                 .Content(@<text>
@@ -87,6 +87,12 @@
                         .Icon("home")
                         .Option("path", Url.Page("Index"))
                         .Selected(IsCurrentPage("Index"));
+
+                    items.Add()
+                        .Text("Статистика")
+                        .Icon("info")
+                        .Option("path", Url.Page("charts"))
+                        .Selected(IsCurrentPage("charts"));
                        
                     items.Add()
                         .Text("Карта")
@@ -99,7 +105,7 @@
                 .SelectionMode(NavSelectionMode.Single)
                 .SelectedExpr("selected")
                 .FocusStateEnabled(false)
-                .Width(350)
+                .Width(250)
                 .OnItemClick("NationalProject.onTreeViewItemClick")
             )
         </div>
