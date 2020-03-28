@@ -171,57 +171,89 @@ body, html {
 }
 
 
-/*Home According*/
-
-#accordion h1 {
-    font-size: 20px;
-}
-
-#accordion h1,
-#accordion p {
-    margin: 0;
-}
-
-.dx-theme-material #accordion .dx-accordion-item-opened .dx-accordion-item-title {
-    display: flex;
-}
-
-.dx-theme-material #accordion .dx-accordion-item-opened h1 {
-    align-self: center;
-}
-
-.options,
-.selected-data {
+/*ListHome*/
+.leftList {
+    float: left;
+    width: 330px;
+    height: 470px;
     padding: 20px;
-    background-color: rgba(191, 191, 191, 0.15);
-    margin-top: 20px;
+    background: rgba(191, 191, 191, 0.15);
+    margin-right: 30px;
 }
 
-.selected-data {
-    position: relative;
-    height: 36px;
+.rightList {
+    overflow: hidden;
 }
 
-    .selected-data > .caption {
-        position: relative;
-        top: 5px;
-        margin-right: 10px;
-        font-weight: bold;
-        font-size: 115%;
-    }
-
-    .selected-data > .dx-widget {
-        position: absolute;
-        left: 140px;
-        right: 20px;
-        top: 20px;
-    }
-
-.options > .caption {
-    font-weight: 500;
+.leftList #list .dx-list-group-header {
+    color: #f05b41;
+    font-weight: normal;
     font-size: 18px;
 }
 
-.option {
-    margin-top: 10px;
+.leftList #list .projectentity {
+    float: left;
 }
+
+    .leftList #list .projectentity .name {
+        font-weight: bold;
+    }
+
+.rightList .header {
+    height: 70px;
+}
+
+    .rightList .header .name-container {
+        float: left;
+    }
+
+    .rightList .header .name {
+        font-size: 30px;
+        font-weight: bold;
+    }
+
+    .rightList .header .price-container {
+        padding-top: 27px;
+    }
+
+
+.rightList #tile {
+    margin: 0 -12px 0 -12px;
+}
+
+.rightList .tile-image {
+    height: 100%;
+    width: 100%;
+    background-size: cover;
+}
+
+.rightList .address {
+    padding-top: 30px;
+    font-size: 18px;
+    opacity: 0.7;
+}
+
+.rightList .description {
+    margin: 10px 0;
+}
+
+
+.price-container {
+    float: right;
+    padding-top: 13px;
+}
+
+    .price-container > div {
+        display: inline-block;
+    }
+
+    .price-container .price {
+        font-size: 25px;
+    }
+
+    .price-container .caption {
+        font-size: 11px;
+        line-height: 12px;
+        padding-left: 2px;
+        opacity: 0.7;
+    }

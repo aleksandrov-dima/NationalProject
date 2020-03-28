@@ -1,35 +1,52 @@
 @page
 @using NationalProject.Models
 
-<h2 class="content-block">Home</h2>
-
-<div id="accordion">
-    @(Html.DevExtreme().Accordion()
-            .ID("accordion-container")
-            .DataSource(d => d.Mvc().Controller("Accordion").LoadAction("GetData").Key("ID"))
-            .AnimationDuration(400)
-            .Collapsible(true)
-            .Multiple(false)
-            //.OnSelectionChanged("accordion_selectionChanged")
-            .ItemTitleTemplate(@<text><h1><%- Name %></h1></text>)
-.ItemTemplate(@<text>
-                <div class="accodion-item">
+<div class="leftList">
+    @(Html.DevExtreme().List()
+        .ID("list")
+        .Grouped(false)
+        .SearchEnabled(false)
+        .SelectionMode(ListSelectionMode.Single)
+        .DataSource(d => d.Mvc().Controller("ActionsOverview").Key("ID").LoadAction("Get"))
+        //.DataSourceOptions(o => o.Group("City").SearchExpr(new[] { "Hotel_Name", "City", "Address" }))
+        .SelectedItems(new[] { SampleData.ProjectEntitys.First() })
+        .ItemTemplate(@<text>
                     <div>
-                        <p>
-                            <b><%- Name %></b>
-                            (<span><%- LitleDescription %></span>)
-                        </p>
+                        <div class="projectentity">
+                            <div class="name"><%- ProjectName %></div>
+                        </div>
                     </div>
-                </div>
-</text>)
+        </text>)
+ .OnSelectionChanged("selectionChanged")
+    )
+</div>
+<div class="rightList">
+    <div class="header">
+        <div class="name-container">
+            <div class="name"></div>
+        </div>
+    </div>
+    @(Html.DevExtreme().TileView()
+        .ID("tile")
+        .NoDataText("")
+        .Height(224)
+        .BaseItemHeight(100)
+        .BaseItemWidth(137)
+        .ItemMargin(12)
+        .ItemTemplate(@<text>
+                    <div class="tile-image" style="background-image: url(<%- '../../images/' + FileName %>);"></div>
+        </text>)
     )
 
+    <div class="description"></div>
 </div>
 
-    <script>
-
-        function getAccordionInstance() {
-            return $("#accordion-container").dxAccordion("instance");
-        }
-
-    </script>
+<script>
+    function selectionChanged(e) {
+        var projectentity = e.addedItems[0];
+        var tile = $("#tile").dxTileView("instance");
+        tile.option("dataSource", projectentity.Images);
+        $(".header .name").text(projectentity.ProjectName);
+        $(".rightList .description").text(projectentity.LitleDescription);
+    }
+</script>

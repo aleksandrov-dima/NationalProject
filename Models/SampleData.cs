@@ -5,22 +5,33 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace NationalProject.Models {
-    static class SampleData {
+    public static class SampleData {
 
         public static List<ProjectEntity> ProjectEntitys = new List<ProjectEntity>() {
             new ProjectEntity {
                 ID = 1,
-                Name = "Здравоохранение",
-                LitleDescription = "Краткое описание"
+                ProjectName = "Здравоохранение",
+                LitleDescription = "Образ жизни. Здравоохранение и медицина",
+                Images = new[] {
+                    new ProjectEntityImage { FileName = "zdrav_icon.png" },
+                    new ProjectEntityImage { FileName = "zdrav_programs.png" },
+                    new ProjectEntityImage { FileName = "zdrav_programs.png", widthRatio = 2, heightRatio = 2 },
+                    new ProjectEntityImage { FileName = "zdrav_tasks.png", widthRatio = 2, heightRatio = 2 }
+                }
             },
             new ProjectEntity {
                 ID = 2,
-                Name = "Демография",
-                LitleDescription = "Краткое описание"
+                ProjectName = "Демография",
+                LitleDescription = "Краткое описание",
+                Images = new[] {
+                    new ProjectEntityImage { FileName = "demograf_icon.png" },
+                    new ProjectEntityImage { FileName = "demograf_programs.png", widthRatio = 2, heightRatio = 2 },
+                    new ProjectEntityImage { FileName = "demograf_tasks.png", widthRatio = 2, heightRatio = 2 }
+                }
             },
             new ProjectEntity {
                 ID = 3,
-                Name = "Образование",
+                ProjectName = "Образование",
                 LitleDescription = "Краткое описание"
             }
         };
