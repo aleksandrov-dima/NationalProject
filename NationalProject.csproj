@@ -15,6 +15,7 @@
     <PackageReference Include="BuildBundlerMinifier" Version="2.9.406" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Properties\PublishProfile\" />
     <Folder Include="wwwroot\map\" />
   </ItemGroup>
   <ProjectExtensions>
