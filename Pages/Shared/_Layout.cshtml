@@ -95,15 +95,21 @@
                        
                     items.Add()
                         .Text("Карта демографии")
-                        .Icon("info")
+                        .Icon("globe")
                         .Option("path", Url.Page("DemographyMap"))
                         .Selected(IsCurrentPage("DemographyMap"));
                                     
                     items.Add()
                         .Text("Карта здравоохранения")
-                        .Icon("info")
+                        .Icon("like")
                         .Option("path", Url.Page("HealthMap"))
                         .Selected(IsCurrentPage("HealthMap"));
+
+                    items.Add()
+                        .Text("Карта образования")
+                        .Icon("background")
+                        .Option("path", Url.Page("EducationMap"))
+                        .Selected(IsCurrentPage("EducationMap"));
                 })
                 .ExpandNodesRecursive(true)
                 .ExpandEvent(TreeViewExpandEvent.Click)

@@ -2,8 +2,8 @@
 
 <div class="content-block">
     <div class="proj_head">
-        <h2>Борьба с онкологическими заболеваниями</h2>
-        <span class="proj_short">Статистика по количеству случаев онкологических заболеваний</span>
+        <h2>Дополнительное образование детей в возрасте от 5 до 18 лет</h2>
+        <span class="proj_short">Статистика по охвату дополнительного образования в школах</span>
     </div>
 </div>
 
@@ -37,7 +37,7 @@
                 '{% if state.selected %} my-button-selected{% endif %}">',
                 '<img class="my-button__img" src="{{ data.image }}" alt="{{ data.title }}">',
                 //'<span class="my-button__text">{{ data.content }}</span>',
-                '<a class="my-button__text" href="../DemographyOlds" target="_blank">{{ data.content }}</a>',
+                '<a class="my-button__text" href="../EducationChildrens" target="_blank">{{ data.content }}</a>',
                 '</div>'
             ].join('')),
 
@@ -57,8 +57,8 @@
             top: 5
         });
 
-        // ГДБ №2
-        var mosMarkPosition = [56.145794, 47.229924];
+        // Школа №27
+        var mosMarkPosition = [56.143839, 47.191322];
         mosContentLayout = ymaps.templateLayoutFactory.createClass(
                 '<div class="mark">' +
                     '<img class="mark-row" src="images/map_arrow_up.png"/>' +
@@ -68,41 +68,41 @@
             mosPlacemark = new ymaps.Placemark(mosMarkPosition,
             {
                 balloonContentHeader:
-                    '<div class="balloon-title">Динамика онкологических заболеваний</div>' +
-                    '<span class="balloon-description">Финансирование в год (млн. р.):</span>' +
-                    '<div class="h-wrapper">' +
-                        '<div class="h-bars">' +
-                            '<div class="h-bar up blue" style="height: 65%"><span>61</span></div>' +
-                            '<div class="h-bar up blue" style="height: 78%"><span>72</span></div>' +
-                            '<div class="h-bar up blue" style="height: 84%"><span>81</span></div>' +
-                        '</div>' +
-                        '<div class="date-wrapper">' +
-                            '<div class="date">2020</div>' +
-                            '<div class="date">2021</div>' +
-                            '<div class="date">2023</div>' +
-                        '</div>' +
-                    '</div>',
-
-                balloonContentBody:
-                    '<span class="balloon-description">Охват граждан:</span>' +
+                    '<div class="balloon-title">Охват доп. образования учащихся</div>' +
+                        '<span class="balloon-description">Рост охвата:</span>' +
                         '<div class="h-wrapper">' +
                         '<div class="h-bars">' +
-                        '<div class="h-bar up orange" style="height: 56%"><span>+6%</span></div>' +
-                        '<div class="h-bar up orange" style="height: 59%"><span>+9%</span></div>' +
-                        '<div class="h-bar up orange" style="height: 63%"><span>+13%</span></div>' +
+                        '<div class="h-bar up orange" style="height: 6%"><span>+6%</span></div>' +
+                        '<div class="h-bar up orange" style="height: 9%"><span>+9%</span></div>' +
+                        '<div class="h-bar up orange" style="height: 13%"><span>+13%</span></div>' +
+                        '</div>' +
+                        '<div class="date-wrapper">' +
+                        '<div class="date">2018</div>' +
+                        '<div class="date">2019</div>' +
+                        '<div class="date">Текущий год</div>' +
+                        '</div>' +
+                        '</div>' +
+                        '</div>',
+
+                balloonContentBody:
+                    '<span class="balloon-description">Финансирование в год (млн. р.):</span>' +
+                        '<div class="h-wrapper">' +
+                        '<div class="h-bars">' +
+                        '<div class="h-bar up blue" style="height: 65%"><span>12</span></div>' +
+                        '<div class="h-bar up blue" style="height: 78%"><span>15.3</span></div>' +
+                        '<div class="h-bar up blue" style="height: 84%"><span>16.2</span></div>' +
                         '</div>' +
                         '<div class="date-wrapper">' +
                         '<div class="date">2020</div>' +
                         '<div class="date">2021</div>' +
-                        '<div class="date">2022</div>' +
-                    '</div>' +
+                        '<div class="date">2023</div>' +
                         '</div>' +
-                    '<span class="balloon-description">Статистика выявленных:</span>' +
+                    '<span class="balloon-description">Доля детей охваченных доп. образованием:</span>' +
                     '<div class="h-wrapper">' +
                         '<div class="h-bars">' +
-                            '<div class="h-bar up" style="height: 85%"><span>1024</span></div>' +
-                            '<div class="h-bar up" style="height: 68%"><span>893</span></div>' +
-                            '<div class="h-bar up" style="height: 24%"><span>157</span></div>' +
+                            '<div class="h-bar up" style="height: 55%"><span>55%</span></div>' +
+                            '<div class="h-bar up" style="height: 61%"><span>61%</span></div>' +
+                            '<div class="h-bar up" style="height: 68%"><span>68%</span></div>' +
                         '</div>' +
                         '<div class="date-wrapper">' +
                             '<div class="date">2018</div>' +
@@ -110,8 +110,8 @@
                             '<div class="date">Текущий год</div>' +
                         '</div>' +
                     '</div>',
-                hintContent: 'Республиканская клиническая больница',
-                iconContent: '786'
+                hintContent: 'СОШ №27',
+                iconContent: '12%'
             },
             {
                 iconLayout: 'default#imageWithContent',
@@ -122,8 +122,8 @@
                 iconContentLayout: mosContentLayout
             });
 
-        // Центральная городская больница
-        var leninMarkPosition = [56.105366, 47.235104];
+        // СОШ №2
+        var leninMarkPosition = [56.149900, 47.217811];
         leninContentLayout = ymaps.templateLayoutFactory.createClass(
                 '<div class="mark">' +
                     '<img class="mark-row" src="images/map_arrow_up.png"/>' +
@@ -133,41 +133,41 @@
             leninPlacemark = new ymaps.Placemark(leninMarkPosition,
                 {
                     balloonContentHeader:
-                    '<div class="balloon-title">Динамика онкологических заболеваний</div>' +
-                    '<span class="balloon-description">Финансирование в год (млн. р.):</span>' +
-                    '<div class="h-wrapper">' +
-                        '<div class="h-bars">' +
-                            '<div class="h-bar up blue" style="height: 65%"><span>51</span></div>' +
-                            '<div class="h-bar up blue" style="height: 78%"><span>62</span></div>' +
-                            '<div class="h-bar up blue" style="height: 84%"><span>69</span></div>' +
-                        '</div>' +
-                        '<div class="date-wrapper">' +
-                            '<div class="date">2020</div>' +
-                            '<div class="date">2021</div>' +
-                            '<div class="date">2023</div>' +
-                        '</div>' +
-                    '</div>',
-
-                balloonContentBody:
-                    '<span class="balloon-description">Охват граждан:</span>' +
+                    '<div class="balloon-title">Охват доп. образования учащихся</div>' +
+                        '<span class="balloon-description">Рост охвата:</span>' +
                         '<div class="h-wrapper">' +
                         '<div class="h-bars">' +
-                        '<div class="h-bar up orange" style="height: 56%"><span>+3%</span></div>' +
-                        '<div class="h-bar up orange" style="height: 59%"><span>+5%</span></div>' +
-                        '<div class="h-bar up orange" style="height: 63%"><span>+7%</span></div>' +
+                        '<div class="h-bar up orange" style="height: +3%"><span>+6%</span></div>' +
+                        '<div class="h-bar up orange" style="height: +5%"><span>+9%</span></div>' +
+                        '<div class="h-bar up orange" style="height: +9%"><span>+13%</span></div>' +
+                        '</div>' +
+                        '<div class="date-wrapper">' +
+                        '<div class="date">2018</div>' +
+                        '<div class="date">2019</div>' +
+                        '<div class="date">Текущий год</div>' +
+                        '</div>' +
+                        '</div>' +
+                        '</div>',
+
+                balloonContentBody:
+                    '<span class="balloon-description">Финансирование в год (млн. р.):</span>' +
+                        '<div class="h-wrapper">' +
+                        '<div class="h-bars">' +
+                        '<div class="h-bar up blue" style="height: 45%"><span>10</span></div>' +
+                        '<div class="h-bar up blue" style="height: 58%"><span>11.3</span></div>' +
+                        '<div class="h-bar up blue" style="height: 64%"><span>13.2</span></div>' +
                         '</div>' +
                         '<div class="date-wrapper">' +
                         '<div class="date">2020</div>' +
                         '<div class="date">2021</div>' +
-                        '<div class="date">2022</div>' +
-                    '</div>' +
+                        '<div class="date">2023</div>' +
                         '</div>' +
-                    '<span class="balloon-description">Статистика выявленных:</span>' +
+                    '<span class="balloon-description">Доля детей охваченных доп. образованием:</span>' +
                     '<div class="h-wrapper">' +
                         '<div class="h-bars">' +
-                            '<div class="h-bar up" style="height: 85%"><span>913</span></div>' +
-                            '<div class="h-bar up" style="height: 68%"><span>823</span></div>' +
-                            '<div class="h-bar up" style="height: 24%"><span>257</span></div>' +
+                            '<div class="h-bar up" style="height: 55%"><span>51%</span></div>' +
+                            '<div class="h-bar up" style="height: 61%"><span>55%</span></div>' +
+                            '<div class="h-bar up" style="height: 68%"><span>68%</span></div>' +
                         '</div>' +
                         '<div class="date-wrapper">' +
                             '<div class="date">2018</div>' +
@@ -175,8 +175,8 @@
                             '<div class="date">Текущий год</div>' +
                         '</div>' +
                     '</div>',
-                    hintContent: 'Центральная городская больница',
-                    iconContent: '832'
+                    hintContent: 'СОШ №2',
+                    iconContent: '16%'
                 },
                 {
                     iconLayout: 'default#imageWithContent',
@@ -187,8 +187,8 @@
                     iconContentLayout: leninContentLayout
                 });
 
-        // Калининский
-        var calinMarkPosition = [56.136746, 47.271702];
+        // Гимназия №4
+        var calinMarkPosition = [56.128430, 47.255019];
         calinContentLayout = ymaps.templateLayoutFactory.createClass(
                 '<div class="mark">' +
                     '<img class="mark-row" src="images/map_arrow_up.png"/>' +
@@ -198,41 +198,41 @@
             calinPlacemark = new ymaps.Placemark(calinMarkPosition,
                 {
                     balloonContentHeader:
-                    '<div class="balloon-title">Динамика онкологических заболеваний</div>' +
-                    '<span class="balloon-description">Финансирование в год (млн. р.):</span>' +
-                    '<div class="h-wrapper">' +
-                        '<div class="h-bars">' +
-                            '<div class="h-bar up blue" style="height: 65%"><span>71</span></div>' +
-                            '<div class="h-bar up blue" style="height: 78%"><span>82</span></div>' +
-                            '<div class="h-bar up blue" style="height: 84%"><span>93</span></div>' +
-                        '</div>' +
-                        '<div class="date-wrapper">' +
-                            '<div class="date">2020</div>' +
-                            '<div class="date">2021</div>' +
-                            '<div class="date">2023</div>' +
-                        '</div>' +
-                    '</div>',
-
-                balloonContentBody:
-                    '<span class="balloon-description">Охват граждан:</span>' +
+                    '<div class="balloon-title">Охват доп. образования учащихся</div>' +
+                        '<span class="balloon-description">Рост охвата:</span>' +
                         '<div class="h-wrapper">' +
                         '<div class="h-bars">' +
-                        '<div class="h-bar up orange" style="height: 56%"><span>+6%</span></div>' +
-                        '<div class="h-bar up orange" style="height: 59%"><span>+8%</span></div>' +
-                        '<div class="h-bar up orange" style="height: 63%"><span>+11%</span></div>' +
+                        '<div class="h-bar up orange" style="height: +6%"><span>+6%</span></div>' +
+                        '<div class="h-bar up orange" style="height: +9%"><span>+9%</span></div>' +
+                        '<div class="h-bar up orange" style="height: +13%"><span>+13%</span></div>' +
+                        '</div>' +
+                        '<div class="date-wrapper">' +
+                        '<div class="date">2018</div>' +
+                        '<div class="date">2019</div>' +
+                        '<div class="date">Текущий год</div>' +
+                        '</div>' +
+                        '</div>' +
+                        '</div>',
+
+                balloonContentBody:
+                    '<span class="balloon-description">Финансирование в год (млн. р.):</span>' +
+                        '<div class="h-wrapper">' +
+                        '<div class="h-bars">' +
+                        '<div class="h-bar up blue" style="height: 65%"><span>16</span></div>' +
+                        '<div class="h-bar up blue" style="height: 78%"><span>19.3</span></div>' +
+                        '<div class="h-bar up blue" style="height: 84%"><span>22.2</span></div>' +
                         '</div>' +
                         '<div class="date-wrapper">' +
                         '<div class="date">2020</div>' +
                         '<div class="date">2021</div>' +
-                        '<div class="date">2022</div>' +
-                    '</div>' +
+                        '<div class="date">2023</div>' +
                         '</div>' +
-                    '<span class="balloon-description">Статистика выявленных:</span>' +
+                    '<span class="balloon-description">Доля детей охваченных доп. образованием:</span>' +
                     '<div class="h-wrapper">' +
                         '<div class="h-bars">' +
-                            '<div class="h-bar up" style="height: 85%"><span>712</span></div>' +
-                            '<div class="h-bar up" style="height: 68%"><span>651</span></div>' +
-                            '<div class="h-bar up" style="height: 24%"><span>127</span></div>' +
+                            '<div class="h-bar up" style="height: 55%"><span>65%</span></div>' +
+                            '<div class="h-bar up" style="height: 61%"><span>71%</span></div>' +
+                            '<div class="h-bar up" style="height: 68%"><span>88%</span></div>' +
                         '</div>' +
                         '<div class="date-wrapper">' +
                             '<div class="date">2018</div>' +
@@ -240,8 +240,8 @@
                             '<div class="date">Текущий год</div>' +
                         '</div>' +
                     '</div>',
-                    hintContent: 'Городская больница №2',
-                    iconContent: '653'
+                    hintContent: 'Гимназия №4',
+                    iconContent: '23%'
                 },
                 {
                     iconLayout: 'default#imageWithContent',
