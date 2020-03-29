@@ -16,31 +16,6 @@
         .Export(e => e.Enabled(true))
         .Tooltip(t => t
             .Enabled(false)
-            .CustomizeTooltip(
-                        @<text>
-                            function(info) {
-                            return {
-                            html: "<div><div class='tooltip-header'>" +
-                                    info.argumentText + "</div>" +
-                                    "<div class='tooltip-body'><div class='series-name'>" +
-                                        "Финансирование: " +
-                                        "</div><div class='value-text'>" +
-                                        (info.point.data.budjet != null ?info.point.data.budjet:'') +
-
-                                        "</div><div class='series-name'>" +
-                                         "Сейчас: " +
-                                        "</div><div class='value-text'>" +
-                                        (info.point.data.factAge != null ?info.point.data.factAge:'') +
-
-                                        "</div><div class='series-name'>" +
-                                         "Планируется: " +
-                                        "</div><div class='value-text'>" +
-                                        (info.point.data.planDate != null ?info.point.data.planDate:'') +                                        
-                                        "</div>" +
-                                        "</div></div>"
-                            };
-                            }
-                        </text>)
     )
     .OnPointClick(@<text>
         function(e) {
@@ -48,31 +23,30 @@
             var popup = $("#popup").dxPopup(
                                    {
                                                     width: 300,
-                                                    height: 250,
+                                                    height: 350,
                                                     contentTemplate: function() {
-                                                        return $("<div />").append(
-                                                            $("<p>События: <span>" + point.data.events +
-                                                                "</span></p>"),
-                                                                                     
-                                                     $("<div><div class='series-name'>" +
-                                                                "Финансирование: " +
-                                                                "</div><div class='value-text'>" +
-                                                                (point.data.budjet != null ?point.data.budjet:'') +
+                                                        return $("<div />").append(                                                                                     
+                                                             $("<div><b>Финансирование:</b><br>Cейчас: " +
+                                                                        (point.data.budjetFact != null ?point.data.budjetFact:'') + "</div>" +
+                                                                        
+                                                                        "<div>Планируется: " +
+                                                                        (point.data.budjetPlan != null ?point.data.budjetPlan:'') + "</div>" +
 
-                                                                "</div><div class='series-name'>" +
-                                                                 "Сейчас: " +
-                                                                "</div><div class='value-text'>" +
-                                                                (point.data.factAge != null ?point.data.factAge:'') +
+                                                                        "<div><b>Средний возраст</b><br>Cейчас: " +
+                                                                        (point.data.factAge != null ?point.data.factAge:'') +
 
-                                                                "</div><div class='series-name'>" +
-                                                                 "Планируется: " +
-                                                                "</div><div class='value-text'>" +
-                                                                (point.data.planDate != null ?point.data.planDate:'') +                                        
-                                                                "</div></div>")
-                                                        );
+                                                                        "</div><div>Планируется: " +
+                                                                        (point.data.planAge != null ?point.data.planAge:'') + "</div>" +
+
+                                                                        "<div><br><b>События:</b> " + (point.data.events != null ? point.data.events : '') + "</div>")
+                                                        ).dxScrollView({
+                                                            width: '100%',
+                                                            height: '100%'
+                                                        });
+
                                                     },
                                                     showTitle: true,
-                                                    title: "Information",
+                                                    title: point.argument,
                                                     visible: false,
                                                     dragEnabled: false,
                                                     closeOnOutsideClick: true
@@ -108,19 +82,25 @@
                             {
         s.Add()
             .Type(SeriesType.Bar)
-            .ValueField("budjet")
+            .ValueField("budjetFact")
             .Axis("budjet")
-            .Name("Финансирование, млн/р")
+            .Name("Финансирование (факт), млн/р")
             .Color("#6f42c1");
+        s.Add()
+            .Type(SeriesType.Bar)
+            .ValueField("budjetPlan")
+            .Axis("budjet")
+            .Name("Финансирование (план), млн/р")
+            .Color("#20c997");
         s.Add()
             .Type(SeriesType.Spline)
             .ValueField("factAge")
             .Axis("age")
             .Name("Фактический показатель, возраст")
-            .Color("#6b71c3");
+            .Color("#c9203f");
         s.Add()
             .Type(SeriesType.Spline)
-            .ValueField("planDate")
+            .ValueField("planAge")
             .Axis("age")
             .Name("Планируемый показатель, возраст")
             .Color("#fac29a");

@@ -13,39 +13,47 @@
                 .OverlappingBehavior(OverlappingBehavior.Stagger)
             )
         )
+        .Export(e => e.Enabled(true))
         .Tooltip(t => t
-            .Enabled(true)
-            .Shared(true)
-            .CustomizeTooltip(
-                        @<text>
-                            function(info) {
-                            console.info(info);
-                            return {
-                            html: "<div><div class='tooltip-header'>" +
-                                    info.argumentText + "</div>" +
-                                    "<div class='tooltip-body'><div class='series-name'>" +
-                                        (info.points[0].seriesName != null ? info.points[0].seriesName : '') +
-                                        ":</div><div class='value-text'>" +
-                                        (info.points[0].valueText != null ?info.points[0].valueText:'') +
-                                        "</div><div class='series-name'>" +
-                                         (info.points[1] != null ? info.points[1].seriesName  + ":": '') +
-                                        "</div><div class='value-text'>" +
-                                        (info.points[1] != null ?info.points[1].valueText:'') +
-                                        "</div><div class='series-name'>" +
-                                         (info.points[2] != null ? info.points[2].seriesName + ":" : '') +
-                                        "</div><div class='value-text'>" +
-                                        (info.points[2] != null ?info.points[2].valueText:'') +
-                                        @*"<span class='caption'>События</span>: <%- info.data.Capital %>"*@
-                                        "</div></div></div>"
-                            };
-                            }
-                        </text>)
+            .Enabled(false)
     )
     .OnPointClick(@<text>
         function(e) {
             var point = e.target;
-            point.showTooltip();
-            @*$("#region").dxSelectBox("option", "value", point.argument);*@
+            var popup = $("#popup").dxPopup(
+                                   {
+                                                    width: 300,
+                                                    height: 350,
+                                                    contentTemplate: function() {
+                                                        return $("<div />").append(                                                                                     
+                                                             $("<div><b>Финансирование:</b><br>Cейчас: " +
+                                                                        (point.data.budjetFact != null ?point.data.budjetFact:'') + "</div>" +
+                                                                        
+                                                                        "<div>Планируется: " +
+                                                                        (point.data.budjetPlan != null ?point.data.budjetPlan:'') + "</div>" +
+
+                                                                        "<div><b>Средний возраст</b><br>Cейчас: " +
+                                                                        (point.data.factAge != null ?point.data.factAge:'') +
+
+                                                                        "</div><div>Планируется: " +
+                                                                        (point.data.planAge != null ?point.data.planAge:'') + "</div>" +
+
+                                                                        "<div><br><b>События:</b> " + (point.data.events != null ? point.data.events : '') + "</div>")
+                                                        ).dxScrollView({
+                                                            width: '100%',
+                                                            height: '100%'
+                                                        });
+
+                                                    },
+                                                    showTitle: true,
+                                                    title: point.argument,
+                                                    visible: false,
+                                                    dragEnabled: false,
+                                                    closeOnOutsideClick: true
+                                            }         
+            ).dxPopup("instance");
+
+            popup.show();
         }
     </text>)
     .ValueAxis(a =>
@@ -74,19 +82,25 @@
                             {
         s.Add()
             .Type(SeriesType.Bar)
-            .ValueField("budjet")
+            .ValueField("budjetFact")
             .Axis("budjet")
-            .Name("Финансирование, млн/р")
+            .Name("Финансирование (факт), млн/р")
             .Color("#6f42c1");
+        s.Add()
+            .Type(SeriesType.Bar)
+            .ValueField("budjetPlan")
+            .Axis("budjet")
+            .Name("Финансирование (план), млн/р")
+            .Color("#20c997");
         s.Add()
             .Type(SeriesType.Spline)
             .ValueField("factAge")
             .Axis("age")
             .Name("Фактический показатель, возраст")
-            .Color("#6b71c3");
+            .Color("#c9203f");
         s.Add()
             .Type(SeriesType.Spline)
-            .ValueField("planDate")
+            .ValueField("planAge")
             .Axis("age")
             .Name("Планируемый показатель, возраст")
             .Color("#fac29a");
@@ -98,3 +112,4 @@
     .DataSource(d => d.Mvc().Controller("ChartsDemograph2").LoadAction("GetComplaintsData"))
     )
 </div>
+<div id="popup"></div>
