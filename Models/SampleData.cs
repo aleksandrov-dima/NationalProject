@@ -5,7 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace NationalProject.Models {
-    public static class SampleData {        
+    public static class SampleData
+    {
 
         public static List<ProjectEntity> ProjectEntitys = new List<ProjectEntity>() {
             new ProjectEntity {
@@ -233,12 +234,12 @@ namespace NationalProject.Models {
         };
 
         public static readonly IEnumerable<ParetoChartDataProgramDemography> ParetoChartDataProgramDemography = new[] {
-            
+
             new ParetoChartDataProgramDemography()
             {
                 year = "2016",
                 budjetPlan =  10,
-                budjetFact = 8,                
+                budjetFact = 8,
                 factPeaplePercent = 20,
                 events = "<ul><li><a href=\"#\">Событие 1</a></li>"+
                          "<li><a href=\"#\">Событие 2</a></li></ul>"
@@ -247,7 +248,7 @@ namespace NationalProject.Models {
             {
                 year = "2017",
                 budjetPlan =  11,
-                budjetFact = 9,                
+                budjetFact = 9,
                 factPeaplePercent = 23,
                 events = "<ul><li><a href=\"#\">Событие 1</a></li>"+
                          "<li><a href=\"#\">Событие 2</a></li></ul>"

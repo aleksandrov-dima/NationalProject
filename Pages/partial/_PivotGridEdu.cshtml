@@ -1,0 +1,53 @@
+
+<div class="layout-body content-block" >
+
+ <div class="long-title"><h3>Sales Amount by Region</h3></div>
+
+@(Html.DevExtreme().PivotGrid()
+    .ID("educationpivot")
+    .AllowSortingBySummary(true)
+    .AllowSorting(true)
+    .AllowFiltering(true)
+    .AllowExpandAll(true)
+    .Height(440)
+    .ShowBorders(true)
+    .FieldChooser(c => c.Enabled(false))
+    .Export(e => e.Enabled(true).FileName("pivotdata"))
+    .DataSource(d => d
+        .Store(new JS("pivotdata"))
+        .Fields(fields => {
+            fields.Add()
+                .Caption("Region")
+                .Width(120)
+                .DataField("Region")
+                .Area(PivotGridArea.Row);
+
+            fields.Add()
+                .Caption("City")
+                .Width(150)
+                .DataField("City")
+                .Area(PivotGridArea.Row)
+                .Selector(@<text>
+                    function(data) {
+                        return  data.City + " (" + data.Country + ")";
+                    }
+                </text>);
+
+            fields.Add()
+                .DataField("Date")
+                .DataType(PivotGridDataType.Date)
+                .Area(PivotGridArea.Column);
+
+            fields.Add()
+                .Caption("pivotdata")
+                .DataField("Amount")
+                .DataType(PivotGridDataType.Number)
+                .SummaryType(SummaryType.Sum)
+                .Format(Format.Currency)
+                .Area(PivotGridArea.Data);
+        })
+    )
+)
+</div>
+
+
