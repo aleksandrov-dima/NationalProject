@@ -28,8 +28,6 @@
     <PackageReference Include="BuildBundlerMinifier" Version="2.9.406" />
   </ItemGroup>
   <ProjectExtensions>
-    <VisualStudio>
-      <UserProperties DismissedDevExtremeVersion="19.2.7" TemplateFeatures="NETCORE CS RESPONSIVE" />
-    </VisualStudio>
+    <VisualStudio><UserProperties DismissedDevExtremeVersion="19.2.7" TemplateFeatures="NETCORE CS RESPONSIVE" /></VisualStudio>
   </ProjectExtensions>
 </Project>

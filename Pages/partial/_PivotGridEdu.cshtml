@@ -1,0 +1,48 @@
+
+<div class="layout-body content-block" >
+
+
+@(Html.DevExtreme().PivotGrid()
+    .ID("educationpivot")
+    .AllowSortingBySummary(true)
+    .AllowSorting(true)
+    .AllowFiltering(true)
+    .AllowExpandAll(true)
+    .Height(440)
+    .ShowBorders(true)
+    .FieldChooser(c => c.Enabled(false))
+    .Export(e => e.Enabled(true).FileName("pivotdata"))
+    .DataSource(d => d
+        .Store(new JS("pivotdata"))
+        .Fields(fields => {
+            fields.Add()
+                .Caption("Район")
+                .Width(120)
+                .DataField("Region")
+                .Area(PivotGridArea.Row);            
+
+            fields.Add()
+                .DataField("Program")
+                .DataType(PivotGridDataType.String)
+                .Area(PivotGridArea.Column);
+
+            fields.Add()
+                .DataField("Year")
+                .DataType(PivotGridDataType.Number)
+                .Area(PivotGridArea.Column);
+
+            
+
+            fields.Add()
+                .Caption("pivotdata")
+                .DataField("Amount")
+                .DataType(PivotGridDataType.Number)
+                .SummaryType(SummaryType.Sum)
+                .Format(Format.Decimal)
+                .Area(PivotGridArea.Data);
+        })
+    )
+)
+</div>
+
+
