@@ -232,5 +232,79 @@ namespace NationalProject.Models {
             }
         };
 
+        public static readonly IEnumerable<ParetoChartDataProgramDemography> ParetoChartDataProgramDemography = new[] {
+            
+            new ParetoChartDataProgramDemography()
+            {
+                year = "2016",
+                budjetPlan =  10,
+                budjetFact = 8,                
+                factPeaplePercent = 20,
+                events = "<ul><li><a href=\"#\">Событие 1</a></li>"+
+                         "<li><a href=\"#\">Событие 2</a></li></ul>"
+            },
+            new ParetoChartDataProgramDemography()
+            {
+                year = "2017",
+                budjetPlan =  11,
+                budjetFact = 9,                
+                factPeaplePercent = 23,
+                events = "<ul><li><a href=\"#\">Событие 1</a></li>"+
+                         "<li><a href=\"#\">Событие 2</a></li></ul>"
+            },
+            new ParetoChartDataProgramDemography()
+            {
+                year = "2018",
+                budjetPlan =  12,
+                budjetFact = 9,
+                factPeaplePercent = 25,
+                events = "<ul><li><a href=\"#\">Событие 1</a></li>"+
+                         "<li><a href=\"#\">Событие 2</a></li></ul>"
+            },
+            new ParetoChartDataProgramDemography()
+            {
+                year = "2019",
+                budjetPlan = 76.71,
+                budjetFact = 32,
+                factPeaplePercent = 27.7,
+                events = "<ul><li><a href=\"http://minec.cap.ru/news/2019/04/11/priglashaem-organizacii-chuvashskoj-respubliki-pri\">Форум InnoMed</a></li>"+
+                         "<li><a href=\"http://minec.cap.ru/news/2019/04/13/problemi-razvitiya-malogo-i-srednego-biznesa-obsuz\">Круглый стол с мылым бизнесом</a></li></ul>"
+            },
+            new ParetoChartDataProgramDemography()
+            {
+                year = "2020",
+                budjetPlan = 74.33,
+                factPeaplePercent = 33,
+                planPeaplePercent = 32.5,
+                events = "<ul><li><a href=\"#\">Событие 1</a></li>"+
+                         "<li><a href=\"#\">Событие 2</a></li></ul>"
+            },
+            new ParetoChartDataProgramDemography()
+            {
+                year = "2021",
+                budjetPlan = 42.96,
+                factPeaplePercent = 40,
+                planPeaplePercent = 38.5,
+            },
+            new ParetoChartDataProgramDemography()
+            {
+                year = "2022",
+                budjetPlan = 31.5,
+                planPeaplePercent = 55.7,
+            },
+            new ParetoChartDataProgramDemography()
+            {
+                year = "2023",
+                budjetPlan = 31.5,
+                planPeaplePercent = 65.3,
+            },
+            new ParetoChartDataProgramDemography()
+            {
+                year = "2024",
+                budjetPlan = 31.48,
+                planPeaplePercent = 70
+            }
+        };
+
     }
 }

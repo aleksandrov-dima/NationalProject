@@ -14,4 +14,14 @@ namespace NationalProject.Models
         public double? planAge { get; set; }
         public string events { get; set; }
     }
+
+    public class ParetoChartDataProgramDemography
+    {
+        public String year { get; set; }
+        public double? budjetFact { get; set; }
+        public double? budjetPlan { get; set; }
+        public double? factPeaplePercent { get; set; }
+        public double? planPeaplePercent { get; set; }
+        public string events { get; set; }
+    }
 }

@@ -7,7 +7,7 @@
         .ID("chart")
         .Animation(true)
         .Palette(VizPalette.HarmonyLight)
-        //.Title("Продолжительность жизни")
+        .Title("График \"Ход реализации программы системной поддержки и повышения качества жизни граждан старшего поколения\"")
         .ArgumentAxis(a => a
             .Label(l => l
                 .OverlappingBehavior(OverlappingBehavior.Stagger)
@@ -106,7 +106,7 @@
             .Color("#fac29a");
     })
     .Legend(l => l
-        .VerticalAlignment(VerticalEdge.Top)
+        .VerticalAlignment(VerticalEdge.Bottom)
         .HorizontalAlignment(HorizontalAlignment.Center)
     )
     .DataSource(d => d.Mvc().Controller("Chart").LoadAction("GetComplaintsData"))

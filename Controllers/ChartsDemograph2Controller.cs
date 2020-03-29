@@ -28,8 +28,7 @@ namespace NationalProject.Controllers
         public IEnumerable<object> GetComplaintsData()
         {
             var dataSource = new List<object>();
-            var sortedParetoData = SampleData.ParetoChartData.OrderBy(i => i.year);
-            //var totalCount = sortedParetoData.Sum(i => i.count);
+            var sortedParetoData = SampleData.ParetoChartDataProgramDemography.OrderBy(i => i.year);
 
             foreach (var item in sortedParetoData)
             {
@@ -38,8 +37,8 @@ namespace NationalProject.Controllers
                     item.year,
                     item.budjetPlan,
                     item.budjetFact,
-                    item.factAge,
-                    item.planAge,
+                    item.factPeaplePercent,
+                    item.planPeaplePercent,
                     item.events
                 });
             }

@@ -7,12 +7,14 @@
         .ID("chart2")
         .Animation(true)
         .Palette(VizPalette.HarmonyLight)
-        //.Title("Продолжительность жизни")
+        .Title("График \"Результат реализации мероприятий по проведению дополнительных скринингов лицам старше 65 лет\"")
         .ArgumentAxis(a => a
             .Label(l => l
                 .OverlappingBehavior(OverlappingBehavior.Stagger)
             )
         )
+        .ScrollBar(s => s.Visible(true))
+        .ZoomAndPan(z => z.ArgumentAxis(ChartZoomAndPanMode.Zoom))
         .Export(e => e.Enabled(true))
         .Tooltip(t => t
             .Enabled(false)
@@ -33,10 +35,10 @@
                                                                         (point.data.budjetPlan != null ?point.data.budjetPlan:'') + "</div>" +
 
                                                                         "<div><b>Средний возраст</b><br>Cейчас: " +
-                                                                        (point.data.factAge != null ?point.data.factAge:'') +
+                                                                        (point.data.factPeaplePercent != null ?point.data.factPeaplePercent:'') +
 
                                                                         "</div><div>Планируется: " +
-                                                                        (point.data.planAge != null ?point.data.planAge:'') + "</div>" +
+                                                                        (point.data.planPeaplePercent != null ?point.data.planPeaplePercent:'') + "</div>" +
 
                                                                         "<div><br><b>События:</b> " + (point.data.events != null ? point.data.events : '') + "</div>")
                                                         ).dxScrollView({
@@ -71,9 +73,17 @@
                 </text>)
             );
     a.Add()
-        .Name("age")
+        .Name("peapleCount")
         .Position(Position.Left)
-        .ShowZero(false);            
+        .ShowZero(false)
+        .Label(l => l
+            .CustomizeText(
+                @<text>
+                    function(info) {
+                        return info.valueText + " %";
+                    }
+                </text>)
+            );
     })
     .CommonSeriesSettings(s => s
         .ArgumentField("year")
@@ -94,19 +104,19 @@
             .Color("#20c997");
         s.Add()
             .Type(SeriesType.Spline)
-            .ValueField("factAge")
-            .Axis("age")
-            .Name("Фактический показатель, возраст")
+            .ValueField("factPeaplePercent")
+            .Axis("peapleCount")
+            .Name("Фактический показатель, % охвата граждан")
             .Color("#c9203f");
         s.Add()
             .Type(SeriesType.Spline)
-            .ValueField("planAge")
-            .Axis("age")
-            .Name("Планируемый показатель, возраст")
+            .ValueField("planPeaplePercent")
+            .Axis("peapleCount")
+            .Name("Планируемый показатель, % охвата граждан")
             .Color("#fac29a");
     })
     .Legend(l => l
-        .VerticalAlignment(VerticalEdge.Top)
+        .VerticalAlignment(VerticalEdge.Bottom)
         .HorizontalAlignment(HorizontalAlignment.Center)
     )
     .DataSource(d => d.Mvc().Controller("ChartsDemograph2").LoadAction("GetComplaintsData"))
