@@ -156,7 +156,7 @@ namespace NationalProject.Models {
                 budjetFact = 32,
                 factAge = 64.2,
                 events = "<ul><li><a href=\"http://minec.cap.ru/news/2019/04/11/priglashaem-organizacii-chuvashskoj-respubliki-pri\">Форум InnoMed</a></li>"+
-                         "<li><a href=\"http://minec.cap.ru/news/2019/04/13/problemi-razvitiya-malogo-i-srednego-biznesa-obsuz\">Круглый стол с мылым бизнесом</a></li></ul>"
+                         "<li><a href=\"http://minec.cap.ru/news/2019/04/13/problemi-razvitiya-malogo-i-srednego-biznesa-obsuz\">Круглый стол с малым бизнесом</a></li></ul>"
             },
             new ParetoChartData()
             {
@@ -269,7 +269,7 @@ namespace NationalProject.Models {
                 budjetFact = 32,
                 factPeaplePercent = 27.7,
                 events = "<ul><li><a href=\"http://minec.cap.ru/news/2019/04/11/priglashaem-organizacii-chuvashskoj-respubliki-pri\">Форум InnoMed</a></li>"+
-                         "<li><a href=\"http://minec.cap.ru/news/2019/04/13/problemi-razvitiya-malogo-i-srednego-biznesa-obsuz\">Круглый стол с мылым бизнесом</a></li></ul>"
+                         "<li><a href=\"http://minec.cap.ru/news/2019/04/13/problemi-razvitiya-malogo-i-srednego-biznesa-obsuz\">Круглый стол с малым бизнесом</a></li></ul>"
             },
             new ParetoChartDataProgramDemography()
             {
