@@ -91,10 +91,16 @@
 
                        
                     items.Add()
-                        .Text("Карта")
+                        .Text("Карта демографии")
                         .Icon("info")
                         .Option("path", Url.Page("DemographyMap"))
                         .Selected(IsCurrentPage("DemographyMap"));
+                                    
+                    items.Add()
+                        .Text("Карта здравоохранения")
+                        .Icon("info")
+                        .Option("path", Url.Page("HealthMap"))
+                        .Selected(IsCurrentPage("HealthMap"));
                 })
                 .ExpandNodesRecursive(true)
                 .ExpandEvent(TreeViewExpandEvent.Click)

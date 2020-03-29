@@ -11,6 +11,10 @@
 <script>
     ymaps.ready(init);
     function init() {
+        if (yMap) {
+            yMap.destroy();
+        }
+
         var yMap = new ymaps.Map("map",
             {
                 // Координаты центра карты.
@@ -22,6 +26,39 @@
                     'fullscreenControl', // Полноэкранный режим
                 ]
             });
+
+        // Переход к проекту (Кнопка)
+        ButtonLayout = ymaps.templateLayoutFactory.createClass([
+                '<div title="{{ data.title }}" class="my-button ',
+                    '{% if state.size == "small" %}my-button_small{% endif %}',
+                    '{% if state.size == "medium" %}my-button_medium{% endif %}',
+                    '{% if state.size == "large" %}my-button_large{% endif %}',
+                    '{% if state.selected %} my-button-selected{% endif %}">',
+                    '<img class="my-button__img" src="{{ data.image }}" alt="{{ data.title }}">',
+                    //'<span class="my-button__text">{{ data.content }}</span>',
+                    '<a class="my-button__text" href="../DemographyOlds" target="_blank">{{ data.content }}</a>',
+                '</div>'
+            ].join('')),
+
+            button = new ymaps.control.Button({
+                data: {
+                    content: "Перейти к проекту",
+                    image: 'images/map_btn_project.png'
+                },
+                options: {
+                    layout: ButtonLayout,
+                    maxWidth: [170, 190, 220]
+                }
+            });
+
+        button.onClick = function() {
+            alert('hello');
+        };
+
+        yMap.controls.add(button, {
+            right: 5,
+            top: 5
+        });
 
         // Московский район
         var mosCoords = [[[56.12738, 47.096074], [56.128212, 47.096689], [56.12832, 47.096355], [56.129098, 47.096414],
@@ -190,20 +227,20 @@
                     '<div class="balloon-title">Динамика убыли/роста населения</div>' +
                     '<span class="balloon-description">Статистика за 2020 г.</span>' +
                     '<div class="balloon-header">' +
+                        '<span class="balloon-born">Родилось: </span>' +
+                        '<img class="balloon-header image" src="images/map_popup_girl.png"/>' +
+                        '<span class="balloon-born">41 </span>' +
+                        '<img class="balloon-header image" src="images/map_popup_boy.png"/>' +
+                        '<span class="balloon-born">59 </span>' +
+                    '</div>' +
+                    '<div class="balloon-header">' +
                         '<span class="balloon-death">Умерло: </span>' +
                         '<img class="balloon-header image" src="images/map_popup_man.png"/>' +
                         '<span class="balloon-death">151 </span>' +
                         '<img class="balloon-header image" src="images/map_popup_woman.png"/>' +
                         '<span class="balloon-death">111 </span>' +
                     '</div>' +
-                    '<span class="balloon-description child">Из них старше 60 лет: 98</span>' +
-                    '<div class="balloon-header">' +
-                        '<span class="balloon-born">Родилось: </span>' +
-                        '<img class="balloon-header image" src="images/map_popup_girl.png"/>' +
-                        '<span class="balloon-born">41 </span>' +
-                        '<img class="balloon-header image" src="images/map_popup_boy.png"/>' +
-                        '<span class="balloon-born">59 </span>' +
-                    '</div>',
+                    '<span class="balloon-description child">Из них старше 60 лет: 98</span>',
                 
                 balloonContentBody:
                     '<div class="h-wrapper">' +
@@ -258,20 +295,20 @@
                     '<div class="balloon-title">Динамика убыли/роста населения</div>' +
                     '<span class="balloon-description">Статистика за 2020 г.</span>' +
                     '<div class="balloon-header">' +
+                        '<span class="balloon-born">Родилось: </span>' +
+                        '<img class="balloon-header image" src="images/map_popup_girl.png"/>' +
+                        '<span class="balloon-born">84 </span>' +
+                        '<img class="balloon-header image" src="images/map_popup_boy.png"/>' +
+                        '<span class="balloon-born">127 </span>' +
+                    '</div>' +
+                    '<div class="balloon-header">' +
                         '<span class="balloon-death">Умерло: </span>' +
                         '<img class="balloon-header image" src="images/map_popup_man.png"/>' +
                         '<span class="balloon-death">103 </span>' +
                         '<img class="balloon-header image" src="images/map_popup_woman.png"/>' +
                         '<span class="balloon-death">54 </span>' +
                     '</div>' +
-                    '<span class="balloon-description child">Из них старше 60 лет: 32</span>' +
-                    '<div class="balloon-header">' +
-                        '<span class="balloon-born">Родилось: </span>' +
-                        '<img class="balloon-header image" src="images/map_popup_girl.png"/>' +
-                        '<span class="balloon-born">84 </span>' +
-                        '<img class="balloon-header image" src="images/map_popup_boy.png"/>' +
-                        '<span class="balloon-born">127 </span>' +
-                    '</div>',
+                    '<span class="balloon-description child">Из них старше 60 лет: 32</span>',
                 
                     balloonContentBody:
                     '<div class="h-wrapper">' +
@@ -326,20 +363,21 @@
                     '<div class="balloon-title">Динамика убыли/роста населения</div>' +
                     '<span class="balloon-description">Статистика за 2020 г.</span>' +
                     '<div class="balloon-header">' +
+                        '<span class="balloon-born">Родилось: </span>' +
+                        '<img class="balloon-header image" src="images/map_popup_girl.png"/>' +
+                        '<span class="balloon-born">231 </span>' +
+                        '<img class="balloon-header image" src="images/map_popup_boy.png"/>' +
+                        '<span class="balloon-born">198 </span>' +
+                    '</div>'+
+                    '<div class="balloon-header">' +
                         '<span class="balloon-death">Умерло: </span>' +
                         '<img class="balloon-header image" src="images/map_popup_man.png"/>' +
                         '<span class="balloon-death">151 </span>' +
                         '<img class="balloon-header image" src="images/map_popup_woman.png"/>' +
                         '<span class="balloon-death">211 </span>' +
                     '</div>' +
-                    '<span class="balloon-description child">Из них старше 60 лет: 147</span>' +
-                    '<div class="balloon-header">' +
-                        '<span class="balloon-born">Родилось: </span>' +
-                        '<img class="balloon-header image" src="images/map_popup_girl.png"/>' +
-                        '<span class="balloon-born">231 </span>' +
-                        '<img class="balloon-header image" src="images/map_popup_boy.png"/>' +
-                        '<span class="balloon-born">198 </span>' +
-                    '</div>',
+                    '<span class="balloon-description child">Из них старше 60 лет: 147</span>'
+                    ,
                 
                 balloonContentBody:
                     '<div class="h-wrapper">' +

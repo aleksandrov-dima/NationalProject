@@ -28,17 +28,17 @@ namespace NationalProject.Controllers
         public IEnumerable<object> GetComplaintsData()
         {
             var dataSource = new List<object>();
-            var sortedParetoData = SampleData.ParetoChartData.OrderBy(i => i.year);
-            //var totalCount = sortedParetoData.Sum(i => i.count);
+            var sortedParetoData = SampleData.ParetoChartDataProgramDemography.OrderBy(i => i.year);
 
             foreach (var item in sortedParetoData)
             {
                 dataSource.Add(new
                 {
                     item.year,
-                    item.budjet,
-                    item.factAge,
-                    item.planDate,
+                    item.budjetPlan,
+                    item.budjetFact,
+                    item.factPeaplePercent,
+                    item.planPeaplePercent,
                     item.events
                 });
             }
