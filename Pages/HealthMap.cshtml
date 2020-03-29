@@ -2,8 +2,8 @@
 
 <div class="content-block">
     <div class="proj_head">
-        <h2>Демографическая карта населения региона</h2>
-        <span class="proj_short">Статистика рождаемости/смертности населения по районам</span>
+        <h2>Борьба с онкологическими заболеваниями</h2>
+        <span class="proj_short">Статистика по количеству случаев онкологических заболеваний</span>
     </div>
     <div id="map" style="width: 100%; height: 600px"></div>
 </div>
@@ -19,7 +19,7 @@
             {
                 // Координаты центра карты.
                 center: [56.120410, 47.238941],
-                zoom: 12,
+                zoom: 13,
                 behaviors: ['default', 'scrollZoom'],
                 controls: [
                     'zoomControl', // Ползунок масштаба
@@ -27,230 +27,103 @@
                 ]
             });
 
-        // Московский район
-        var mosCoords = [[[56.12738, 47.096074], [56.128212, 47.096689], [56.12832, 47.096355], [56.129098, 47.096414],
-            [56.12911, 47.097898], [56.130967, 47.098633], [56.132161, 47.103076], [56.132209, 47.105671],
-            [56.131941, 47.107193], [56.132156, 47.107969], [56.130956, 47.111753], [56.128222, 47.118116],
-            [56.12736, 47.120872], [56.127288, 47.121752], [56.127334, 47.123046], [56.127638, 47.123218],
-            [56.127745, 47.127474], [56.130209, 47.136599], [56.134054, 47.136835], [56.136122, 47.136267],
-            [56.137758, 47.137155], [56.13913, 47.138769], [56.139739, 47.136503], [56.146198, 47.139179],
-            [56.151244, 47.143067], [56.151155, 47.149734], [56.1507, 47.153561], [56.151123, 47.15411],
-            [56.151343, 47.153548], [56.151452, 47.151037], [56.151626, 47.150834], [56.151857, 47.148123],
-            [56.155227, 47.14912], [56.156804, 47.150205], [56.156504, 47.154437], [56.155475, 47.162402],
-            [56.155214, 47.167813], [56.155621, 47.177559], [56.155784, 47.178213], [56.155664, 47.179161],
-            [56.155867, 47.206133], [56.156036, 47.208359], [56.15552, 47.219706], [56.155204, 47.232956],
-            [56.154742, 47.236374], [56.154735, 47.239806], [56.154111, 47.246283], [56.154092, 47.248096],
-            [56.152581, 47.253921], [56.151977, 47.25502], [56.151272, 47.255072], [56.149719, 47.254459],
-            [56.149518, 47.254062], [56.149622, 47.25343], [56.149152, 47.25265], [56.148288, 47.253404],
-            [56.147991, 47.252448], [56.146683, 47.253597], [56.147246, 47.249774], [56.147113, 47.249085],
-            [56.144439, 47.245286], [56.14196, 47.242318], [56.140251, 47.239093], [56.138469, 47.237094],
-            [56.138498, 47.235997], [56.137032, 47.235146], [56.136665, 47.234351], [56.136974, 47.233541],
-            [56.137142, 47.23214], [56.136654, 47.228832], [56.136146, 47.22868], [56.135907, 47.228025],
-            [56.134792, 47.226861], [56.133912, 47.225404], [56.13159, 47.224744], [56.130767, 47.22331],
-            [56.127698, 47.221123], [56.125126, 47.217742], [56.122188, 47.211804], [56.121002, 47.20713],
-            [56.117307, 47.203649], [56.112083, 47.200031], [56.109116, 47.193878], [56.10253, 47.183641],
-            [56.083708, 47.164943], [56.080941, 47.163467], [56.081173, 47.162584], [56.080651, 47.161809],
-            [56.082589, 47.155825], [56.083038, 47.150025], [56.0835, 47.150143], [56.083407, 47.145315],
-            [56.082459, 47.138219], [56.080409, 47.130255], [56.079105, 47.126495], [56.077167, 47.12277],
-            [56.077881, 47.120647], [56.079367, 47.118766], [56.080248, 47.116755], [56.080716, 47.11728],
-            [56.081505, 47.116778], [56.081994, 47.117205], [56.083004, 47.117179], [56.084697, 47.119061],
-            [56.085225, 47.119032], [56.08689, 47.120038], [56.087301, 47.120984], [56.086078, 47.123003],
-            [56.087262, 47.12484], [56.087531, 47.125887], [56.08698, 47.126857], [56.086975, 47.127542],
-            [56.087513, 47.131161], [56.089999, 47.133394], [56.090525, 47.132422], [56.092015, 47.134226],
-            [56.092422, 47.134301], [56.092757, 47.133928], [56.091089, 47.127464], [56.091463, 47.126681],
-            [56.091154, 47.126095], [56.092703, 47.12466], [56.095336, 47.129883], [56.095888, 47.130473],
-            [56.09609, 47.132148], [56.096388, 47.132993], [56.096124, 47.133348], [56.096155, 47.134634],
-            [56.09784, 47.134834], [56.098422, 47.134492], [56.099055, 47.134777], [56.09944, 47.133006],
-            [56.099709, 47.133639], [56.100302, 47.134023], [56.101603, 47.133633], [56.104125, 47.136026],
-            [56.105054, 47.137958], [56.106811, 47.134816], [56.10722, 47.133609], [56.108305, 47.132253],
-            [56.109665, 47.134577], [56.109891, 47.134606], [56.110124, 47.132622], [56.110504, 47.131564],
-            [56.110497, 47.130827], [56.110248, 47.13028], [56.110949, 47.131427], [56.111351, 47.131468],
-            [56.113685, 47.13035], [56.112849, 47.126977], [56.112493, 47.125004], [56.112753, 47.125051], [56.112677, 47.124806], [56.111724, 47.123857],
-            [56.111653, 47.123117], [56.111094, 47.123072], [56.111292, 47.122287], [56.112283, 47.121334], [56.1118, 47.122226], [56.11233, 47.122068],
-            [56.112388, 47.121556], [56.112581, 47.121615], [56.113181, 47.122876], [56.113641, 47.126059], [56.114006, 47.126599], [56.114309, 47.129447],
-            [56.115577, 47.126134], [56.115389, 47.125187], [56.115878, 47.124986], [56.116396, 47.12354], [56.116646, 47.12344], [56.116623, 47.122884],
-            [56.115928, 47.121441], [56.116201, 47.120329], [56.116105, 47.119236], [56.116289, 47.118786], [56.116059, 47.118353], [56.11616, 47.117705],
-            [56.115956, 47.11723], [56.116408, 47.117072], [56.116606, 47.115765], [56.118007, 47.11135], [56.11801, 47.107498], [56.120123, 47.105262],
-            [56.121604, 47.105235], [56.123002, 47.104699], [56.123709, 47.103954], [56.124721, 47.098168], [56.126764, 47.096877]]];
-        var mosPolygon = new ymaps.Polygon(mosCoords, {
-            hintContent: "Московский район"
-        }, {
-            fillColor: '#FF3D0040',
-            strokeColor: '#FFFFFF',
-            strokeWidth: 1
+        // Переход к проекту (Кнопка)
+        ButtonLayout = ymaps.templateLayoutFactory.createClass([
+                '<div title="{{ data.title }}" class="my-button ',
+                '{% if state.size == "small" %}my-button_small{% endif %}',
+                '{% if state.size == "medium" %}my-button_medium{% endif %}',
+                '{% if state.size == "large" %}my-button_large{% endif %}',
+                '{% if state.selected %} my-button-selected{% endif %}">',
+                '<img class="my-button__img" src="{{ data.image }}" alt="{{ data.title }}">',
+                //'<span class="my-button__text">{{ data.content }}</span>',
+                '<a class="my-button__text" href="../DemographyOlds" target="_blank">{{ data.content }}</a>',
+                '</div>'
+            ].join('')),
+
+            button = new ymaps.control.Button({
+                data: {
+                    content: "Перейти к проекту",
+                    image: 'images/map_btn_project.png'
+                },
+                options: {
+                    layout: ButtonLayout,
+                    maxWidth: [170, 190, 220]
+                }
+            });
+
+        yMap.controls.add(button, {
+            right: 5,
+            top: 5
         });
 
-        // Калининский район
-        var calinCoords =
-                [[[56.148099, 47.252787], [56.148292, 47.253551],
-                [56.146848, 47.254862], [56.150264, 47.261466], [56.150036, 47.262211], [56.15063, 47.269624],
-                [56.150307, 47.275176], [56.150257, 47.281684], [56.14735, 47.305974], [56.146665, 47.310056],
-                [56.14642, 47.315051], [56.145783, 47.318615], [56.145495, 47.322765], [56.144707, 47.326193],
-                [56.144812, 47.328721], [56.144384, 47.331217], [56.144259, 47.334534], [56.142829, 47.343015],
-                [56.142679, 47.346925], [56.136625, 47.372331], [56.13601, 47.37587], [56.135344, 47.389457],
-                [56.134007, 47.400744], [56.133621, 47.406511], [56.133531, 47.424751], [56.13296, 47.424821],
-                [56.133012, 47.428583], [56.132388, 47.428596], [56.131983, 47.430039], [56.132305, 47.434001],
-                [56.132997, 47.435444], [56.132806, 47.436377], [56.131902, 47.43674], [56.131468, 47.437515],
-                [56.128823, 47.437166], [56.127293, 47.437408], [56.126926, 47.43592], [56.126039, 47.435887], [56.124783, 47.427309],
-                [56.123915, 47.423203], [56.122857, 47.420074], [56.122236, 47.419851], [56.121691, 47.425001],
-                [56.120282, 47.427249], [56.118074, 47.422023], [56.117118, 47.421034], [56.117197, 47.419915],
-                [56.122332, 47.418156], [56.125078, 47.373841], [56.124912, 47.373613], [56.12519, 47.367606],
-                [56.12488, 47.367547], [56.124977, 47.365299], [56.124231, 47.365159], [56.124246, 47.364883],
-                [56.121655, 47.364573], [56.121468, 47.367937], [56.120377, 47.36834], [56.120172, 47.369498],
-                [56.118333, 47.370313], [56.117924, 47.370206], [56.117005, 47.368958], [56.115822, 47.368719],
-                [56.114848, 47.369422], [56.113297, 47.368257], [56.11281, 47.367278], [56.113022, 47.361263],
-                [56.108692, 47.361004], [56.108398, 47.360141], [56.108631, 47.358634], [56.109125, 47.358679],
-                [56.109438, 47.359373], [56.109548, 47.360581], [56.110749, 47.360493], [56.110538, 47.359027],
-                [56.109791, 47.358242], [56.110076, 47.356568], [56.109785, 47.356296], [56.109554, 47.354905],
-                [56.109976, 47.35453], [56.109567, 47.354419], [56.109319, 47.352901], [56.10951, 47.352497],
-                [56.109325, 47.352068], [56.109366, 47.351108], [56.109018, 47.351178], [56.108945, 47.35078],
-                [56.109118, 47.350153], [56.109553, 47.349991], [56.109256, 47.349582], [56.109519, 47.348942],
-                [56.10945, 47.346304], [56.108984, 47.345646], [56.109, 47.345104], [56.109381, 47.344869],
-                [56.109628, 47.345204], [56.109732, 47.344915], [56.108654, 47.343019], [56.108181, 47.339504],
-                [56.107686, 47.33852], [56.106903, 47.332521], [56.103645, 47.334204], [56.101446, 47.325734],
-                [56.102764, 47.324577], [56.102397, 47.322668], [56.101181, 47.319881], [56.100165, 47.323414],
-                [56.098608, 47.322103], [56.09739, 47.322505], [56.096049, 47.321325], [56.094675, 47.319456],
-                [56.094052, 47.31791], [56.093012, 47.318039], [56.092281, 47.31497], [56.090749, 47.315897],
-                [56.088977, 47.315218], [56.088964, 47.314594], [56.088136, 47.314601], [56.088171, 47.315254],
-                [56.088582, 47.315261], [56.088604, 47.316769], [56.086384, 47.316969], [56.087825, 47.325183],
-                [56.089452, 47.330592], [56.090096, 47.334712], [56.089656, 47.335444], [56.091204, 47.342802],
-                [56.092392, 47.347285], [56.093353, 47.355263], [56.094481, 47.359444], [56.096797, 47.372583],
-                [56.096152, 47.3733], [56.094212, 47.372173], [56.093228, 47.369686], [56.092263, 47.368645],
-                [56.088946, 47.351426], [56.081541, 47.344328], [56.079689, 47.335664], [56.079339, 47.332316],
-                [56.07748, 47.330291], [56.075488, 47.329066], [56.073377, 47.329277], [56.070424, 47.330155],
-                [56.070327, 47.329617], [56.069624, 47.329116], [56.069786, 47.327818], [56.069582, 47.326434],
-                [56.069687, 47.325179], [56.070338, 47.322497], [56.070423, 47.31971], [56.069327, 47.311933],
-                [56.067885, 47.306341], [56.067404, 47.30587], [56.065837, 47.300637], [56.066987, 47.295991],
-                [56.067062, 47.295379], [56.066758, 47.294745], [56.066991, 47.294189], [56.066325, 47.291363],
-                [56.066352, 47.289799], [56.065602, 47.288843], [56.065707, 47.288092], [56.065143, 47.286741],
-                [56.064634, 47.284374], [56.063948, 47.282938], [56.064218, 47.281308], [56.064895, 47.280697],
-                [56.065443, 47.278907], [56.068791, 47.280095], [56.070598, 47.27996], [56.072128, 47.279124],
-                [56.075146, 47.276184], [56.081728, 47.267365], [56.082928, 47.267107], [56.086353, 47.267661],
-                [56.086532, 47.273049], [56.087691, 47.278944], [56.088915, 47.283123], [56.089547, 47.288357],
-                [56.10914, 47.277746], [56.110823, 47.27554], [56.112578, 47.270311], [56.11827, 47.276188],
-                [56.118767, 47.274749], [56.120587, 47.273301], [56.120861, 47.272621], [56.132637, 47.262988],
-                [56.134486, 47.263172], [56.138546, 47.261813], [56.140244, 47.257557], [56.142626, 47.255953],
-                [56.144974, 47.256276], [56.145552, 47.256033], [56.145477, 47.254483], [56.146662, 47.254156]]];
-        var calinPolygon = new ymaps.Polygon(calinCoords, {
-            hintContent: "Калининский район"
-        }, {
-            fillColor: '#43A04740',
-            strokeColor: '#FFFFFF',
-            strokeWidth: 1
-        });
-
-        // Ленинский район
-        var leninCoords = [[[56.080941, 47.163467], [56.083708, 47.164943], [56.10253, 47.183641], [56.109116, 47.193878], [56.112083, 47.200031],
-            [56.117307, 47.203649], [56.121002, 47.20713], [56.122188, 47.211804], [56.125126, 47.217742], [56.127698, 47.221123],
-            [56.130767, 47.22331], [56.13159, 47.224744], [56.133912, 47.225404], [56.134792, 47.226861], [56.135907, 47.228025],
-            [56.136146, 47.22868], [56.136654, 47.228832], [56.137142, 47.23214], [56.136974, 47.233541], [56.136665, 47.234351],
-            [56.137032, 47.235146], [56.138498, 47.235997], [56.138469, 47.237094], [56.140251, 47.239093], [56.14196, 47.242318],
-            [56.144439, 47.245286], [56.147071, 47.249], [56.147246, 47.249774], [56.146683, 47.253597], [56.147991, 47.252448],
-            [56.148099, 47.252787], [56.146662, 47.254156], [56.145477, 47.254483], [56.145552, 47.256033], [56.144974, 47.256276],
-            [56.142626, 47.255953], [56.140244, 47.257557], [56.138546, 47.261813], [56.134486, 47.263172], [56.132637, 47.262988],
-            [56.120861, 47.272621], [56.120587, 47.273301], [56.118767, 47.274749], [56.11827, 47.276188], [56.112578, 47.270311],
-            [56.110823, 47.27554], [56.10914, 47.277746], [56.089547, 47.288357], [56.088915, 47.283123], [56.087691, 47.278944],
-            [56.086532, 47.273049], [56.086353, 47.267661], [56.085082, 47.267676], [56.082928, 47.267107], [56.081914, 47.267268],
-            [56.081302, 47.267751], [56.075146, 47.276184], [56.071768, 47.279392], [56.070598, 47.27996], [56.068791, 47.280095],
-            [56.065443, 47.278907], [56.064895, 47.280697], [56.064218, 47.281308], [56.063948, 47.282938], [56.061944, 47.28161],
-            [56.061456, 47.280024], [56.050837, 47.286533], [56.050783, 47.28581], [56.053763, 47.276976], [56.053472, 47.275476],
-            [56.062812, 47.244479], [56.064904, 47.23926], [56.068782, 47.232866], [56.071159, 47.22844], [56.071653, 47.227073],
-            [56.072565, 47.21639], [56.073411, 47.209199], [56.073887, 47.205602], [56.074308, 47.205861], [56.076029, 47.193045],
-            [56.075912, 47.192374], [56.076452, 47.188238], [56.076719, 47.188005], [56.078539, 47.175013], [56.077878, 47.174836],
-            [56.078074, 47.172907], [56.07872, 47.17312], [56.079637, 47.167391], [56.080183, 47.165245]], [[56.06725, 47.253386],
-            [56.068227, 47.250313], [56.068683, 47.250775], [56.068113, 47.25357], [56.068137, 47.254814], [56.069056, 47.25767],
-            [56.06851, 47.259088], [56.068497, 47.259705], [56.068148, 47.259663], [56.068692, 47.26183], [56.068735, 47.26227],
-            [56.068479, 47.262372], [56.068923, 47.262798], [56.068999, 47.263402], [56.068782, 47.263694], [56.068132, 47.262295],
-            [56.065848, 47.266406], [56.065661, 47.266247], [56.065304, 47.267214], [56.067874, 47.272291], [56.068638, 47.272668],
-            [56.070318, 47.270522], [56.070792, 47.270371], [56.071559, 47.271348], [56.071554, 47.273158], [56.071741, 47.273475],
-            [56.072074, 47.272794], [56.072184, 47.271869], [56.07292, 47.271415], [56.07297, 47.270379], [56.073449, 47.269178],
-            [56.073885, 47.266942], [56.074642, 47.265132], [56.0752, 47.263982], [56.075444, 47.264363], [56.075839, 47.263675],
-            [56.075931, 47.26383], [56.076114, 47.262712], [56.076006, 47.261523], [56.074481, 47.258311], [56.073423, 47.256857],
-            [56.072824, 47.256435], [56.070529, 47.251608], [56.07035, 47.248138], [56.070005, 47.248215], [56.069747, 47.247786],
-            [56.067838, 47.248269], [56.067652, 47.248762], [56.067436, 47.248569], [56.066143, 47.252314]]];
-        var leninPolygon = new ymaps.Polygon(leninCoords, {
-            hintContent: "Ленинский район"
-        }, {
-            fillColor: '#FDD83540',
-            strokeColor: '#FFFFFF',
-            strokeWidth: 1
-        });
-
-        yMap.geoObjects.add(mosPolygon);
-        yMap.geoObjects.add(calinPolygon);
-        yMap.geoObjects.add(leninPolygon);
-
-        // Московский
-        var mosMarkPosition = [56.143714, 47.183016];
+        // ГДБ №2
+        var mosMarkPosition = [56.145794, 47.229924];
         mosContentLayout = ymaps.templateLayoutFactory.createClass(
                 '<div class="mark">' +
-                    '<img class="mark-row" src="images/map_arrow_down.png"/>' +
+                    '<img class="mark-row" src="images/map_arrow_up.png"/>' +
                     '$[properties.iconContent]' +
                 '</div>'
             ),
             mosPlacemark = new ymaps.Placemark(mosMarkPosition,
             {
                 balloonContentHeader:
-                    '<div class="balloon-title">Динамика убыли/роста населения</div>' +
-                    '<span class="balloon-description">Статистика за 2020 г.</span>' +
-                    '<div class="balloon-header">' +
-                        '<span class="balloon-death">Умерло: </span>' +
-                        '<img class="balloon-header image" src="images/map_popup_man.png"/>' +
-                        '<span class="balloon-death">151 </span>' +
-                        '<img class="balloon-header image" src="images/map_popup_woman.png"/>' +
-                        '<span class="balloon-death">111 </span>' +
-                    '</div>' +
-                    '<span class="balloon-description child">Из них старше 60 лет: 98</span>' +
-                    '<div class="balloon-header">' +
-                        '<span class="balloon-born">Родилось: </span>' +
-                        '<img class="balloon-header image" src="images/map_popup_girl.png"/>' +
-                        '<span class="balloon-born">41 </span>' +
-                        '<img class="balloon-header image" src="images/map_popup_boy.png"/>' +
-                        '<span class="balloon-born">59 </span>' +
+                    '<div class="balloon-title">Динамика онкологических заболеваний</div>' +
+                    '<span class="balloon-description">Финансирование в год (млн. р.):</span>' +
+                    '<div class="h-wrapper">' +
+                        '<div class="h-bars">' +
+                            '<div class="h-bar up blue" style="height: 65%"><span>61</span></div>' +
+                            '<div class="h-bar up blue" style="height: 78%"><span>72</span></div>' +
+                            '<div class="h-bar up blue" style="height: 84%"><span>81</span></div>' +
+                        '</div>' +
+                        '<div class="date-wrapper">' +
+                            '<div class="date">2020</div>' +
+                            '<div class="date">2021</div>' +
+                            '<div class="date">2023</div>' +
+                        '</div>' +
                     '</div>',
 
                 balloonContentBody:
-                    '<div class="h-wrapper">' +
+                    '<span class="balloon-description">Охват граждан:</span>' +
+                        '<div class="h-wrapper">' +
                         '<div class="h-bars">' +
-                            '<div class="h-bar up" style="height: 10%"><span>34</span></div>' +
-                            '<div class="h-bar up" style="height: 37%"><span>74</span></div>' +
-                            '<div class="h-bar up" style="height: 28%"><span>67</span></div>' +
-                            '<div class="h-bar up" style="height: 24%"><span>62</span></div>' +
-                            '<div class="h-bar up" style="height: 37%"><span>73</span></div>' +
-                            '<div class="h-bar up" style="height: 14%"><span>39</span></div>' +
-                            '<div class="h-bar up" style="height: 37%"><span>83</span></div>' +
-                            '<div class="h-bar up" style="height: 14%"><span>101</span></div>' +
+                        '<div class="h-bar up orange" style="height: 56%"><span>+6%</span></div>' +
+                        '<div class="h-bar up orange" style="height: 59%"><span>+9%</span></div>' +
+                        '<div class="h-bar up orange" style="height: 63%"><span>+13%</span></div>' +
                         '</div>' +
                         '<div class="date-wrapper">' +
-                            '<div class="date">1 января</div>' +
-                            '<div class="date">29 марта</div>' +
+                        '<div class="date">2020</div>' +
+                        '<div class="date">2021</div>' +
+                        '<div class="date">2022</div>' +
+                    '</div>' +
                         '</div>' +
-                        '<div class="h-bars reverse">' +
-                            '<div class="h-bar down" style="height: 20%"><span>23</span></div>' +
-                            '<div class="h-bar down" style="height: 77%"><span>78</span></div>' +
-                            '<div class="h-bar down" style="height: 28%"><span>31</span></div>' +
-                            '<div class="h-bar down" style="height: 48%"><span>47</span></div>' +
-                            '<div class="h-bar down" style="height: 67%"><span>69</span></div>' +
-                            '<div class="h-bar down" style="height: 24%"><span>27</span></div>' +
-                            '<div class="h-bar down" style="height: 47%"><span>46</span></div>' +
-                            '<div class="h-bar down" style="height: 34%"><span>37</span></div>' +
+                    '<span class="balloon-description">Статистика выявленных:</span>' +
+                    '<div class="h-wrapper">' +
+                        '<div class="h-bars">' +
+                            '<div class="h-bar up" style="height: 85%"><span>1024</span></div>' +
+                            '<div class="h-bar up" style="height: 68%"><span>893</span></div>' +
+                            '<div class="h-bar up" style="height: 24%"><span>157</span></div>' +
+                        '</div>' +
+                        '<div class="date-wrapper">' +
+                            '<div class="date">2018</div>' +
+                            '<div class="date">2019</div>' +
+                            '<div class="date">Текущий год</div>' +
                         '</div>' +
                     '</div>',
-                hintContent: 'Статистика по московскому району',
-                iconContent: '151'
+                hintContent: 'Республиканская клиническая больница',
+                iconContent: '786'
             },
             {
                 iconLayout: 'default#imageWithContent',
                 iconImageHref: 'images/map_circle.png',
                 iconImageSize: [64, 64],
                 iconImageOffset: [0, 0],
-                iconContentOffset: [13, 23],
+                iconContentOffset: [8, 23],
                 iconContentLayout: mosContentLayout
             });
 
-        // Ленинский
+        // Центральная городская больница
         var leninMarkPosition = [56.105366, 47.235104];
-        mosContentLayout = ymaps.templateLayoutFactory.createClass(
+        leninContentLayout = ymaps.templateLayoutFactory.createClass(
                 '<div class="mark">' +
                     '<img class="mark-row" src="images/map_arrow_up.png"/>' +
                     '$[properties.iconContent]' +
@@ -259,66 +132,63 @@
             leninPlacemark = new ymaps.Placemark(leninMarkPosition,
                 {
                     balloonContentHeader:
-                    '<div class="balloon-title">Динамика убыли/роста населения</div>' +
-                    '<span class="balloon-description">Статистика за 2020 г.</span>' +
-                    '<div class="balloon-header">' +
-                        '<span class="balloon-death">Умерло: </span>' +
-                        '<img class="balloon-header image" src="images/map_popup_man.png"/>' +
-                        '<span class="balloon-death">103 </span>' +
-                        '<img class="balloon-header image" src="images/map_popup_woman.png"/>' +
-                        '<span class="balloon-death">54 </span>' +
-                    '</div>' +
-                    '<span class="balloon-description child">Из них старше 60 лет: 32</span>' +
-                    '<div class="balloon-header">' +
-                        '<span class="balloon-born">Родилось: </span>' +
-                        '<img class="balloon-header image" src="images/map_popup_girl.png"/>' +
-                        '<span class="balloon-born">84 </span>' +
-                        '<img class="balloon-header image" src="images/map_popup_boy.png"/>' +
-                        '<span class="balloon-born">127 </span>' +
-                    '</div>',
-
-                    balloonContentBody:
+                    '<div class="balloon-title">Динамика онкологических заболеваний</div>' +
+                    '<span class="balloon-description">Финансирование в год (млн. р.):</span>' +
                     '<div class="h-wrapper">' +
                         '<div class="h-bars">' +
-                            '<div class="h-bar up" style="height: 5%"><span>15</span></div>' +
-                            '<div class="h-bar up" style="height: 1%"><span>4</span></div>' +
-                            '<div class="h-bar up" style="height: 14%"><span>32</span></div>' +
-                            '<div class="h-bar up" style="height: 46%"><span>94</span></div>' +
-                            '<div class="h-bar up" style="height: 37%"><span>73</span></div>' +
-                            '<div class="h-bar up" style="height: 14%"><span>39</span></div>' +
-                            '<div class="h-bar up" style="height: 18%"><span>37</span></div>' +
-                            '<div class="h-bar up" style="height: 14%"><span>32</span></div>' +
+                            '<div class="h-bar up blue" style="height: 65%"><span>51</span></div>' +
+                            '<div class="h-bar up blue" style="height: 78%"><span>62</span></div>' +
+                            '<div class="h-bar up blue" style="height: 84%"><span>69</span></div>' +
                         '</div>' +
                         '<div class="date-wrapper">' +
-                            '<div class="date">1 января</div>' +
-                            '<div class="date">29 марта</div>' +
-                        '</div>' +
-                        '<div class="h-bars reverse">' +
-                            '<div class="h-bar down" style="height: 20%"><span>23</span></div>' +
-                            '<div class="h-bar down" style="height: 37%"><span>48</span></div>' +
-                            '<div class="h-bar down" style="height: 28%"><span>31</span></div>' +
-                            '<div class="h-bar down" style="height: 18%"><span>17</span></div>' +
-                            '<div class="h-bar down" style="height: 27%"><span>29</span></div>' +
-                            '<div class="h-bar down" style="height: 24%"><span>27</span></div>' +
-                            '<div class="h-bar down" style="height: 47%"><span>46</span></div>' +
-                            '<div class="h-bar down" style="height: 14%"><span>37</span></div>' +
+                            '<div class="date">2020</div>' +
+                            '<div class="date">2021</div>' +
+                            '<div class="date">2023</div>' +
                         '</div>' +
                     '</div>',
-                    hintContent: 'Статистика по ленинскому району',
-                    iconContent: '53'
+
+                balloonContentBody:
+                    '<span class="balloon-description">Охват граждан:</span>' +
+                        '<div class="h-wrapper">' +
+                        '<div class="h-bars">' +
+                        '<div class="h-bar up orange" style="height: 56%"><span>+3%</span></div>' +
+                        '<div class="h-bar up orange" style="height: 59%"><span>+5%</span></div>' +
+                        '<div class="h-bar up orange" style="height: 63%"><span>+7%</span></div>' +
+                        '</div>' +
+                        '<div class="date-wrapper">' +
+                        '<div class="date">2020</div>' +
+                        '<div class="date">2021</div>' +
+                        '<div class="date">2022</div>' +
+                    '</div>' +
+                        '</div>' +
+                    '<span class="balloon-description">Статистика выявленных:</span>' +
+                    '<div class="h-wrapper">' +
+                        '<div class="h-bars">' +
+                            '<div class="h-bar up" style="height: 85%"><span>913</span></div>' +
+                            '<div class="h-bar up" style="height: 68%"><span>823</span></div>' +
+                            '<div class="h-bar up" style="height: 24%"><span>257</span></div>' +
+                        '</div>' +
+                        '<div class="date-wrapper">' +
+                            '<div class="date">2018</div>' +
+                            '<div class="date">2019</div>' +
+                            '<div class="date">Текущий год</div>' +
+                        '</div>' +
+                    '</div>',
+                    hintContent: 'Центральная городская больница',
+                    iconContent: '832'
                 },
                 {
                     iconLayout: 'default#imageWithContent',
                     iconImageHref: 'images/map_circle.png',
                     iconImageSize: [64, 64],
                     iconImageOffset: [0, 0],
-                    iconContentOffset: [13, 23],
-                    iconContentLayout: mosContentLayout
+                    iconContentOffset: [8, 23],
+                    iconContentLayout: leninContentLayout
                 });
 
         // Калининский
-        var calinMarkPosition = [56.126387, 47.311333];
-        mosContentLayout = ymaps.templateLayoutFactory.createClass(
+        var calinMarkPosition = [56.136746, 47.271702];
+        calinContentLayout = ymaps.templateLayoutFactory.createClass(
                 '<div class="mark">' +
                     '<img class="mark-row" src="images/map_arrow_up.png"/>' +
                     '$[properties.iconContent]' +
@@ -327,61 +197,58 @@
             calinPlacemark = new ymaps.Placemark(calinMarkPosition,
                 {
                     balloonContentHeader:
-                    '<div class="balloon-title">Динамика убыли/роста населения</div>' +
-                    '<span class="balloon-description">Статистика за 2020 г.</span>' +
-                    '<div class="balloon-header">' +
-                        '<span class="balloon-death">Умерло: </span>' +
-                        '<img class="balloon-header image" src="images/map_popup_man.png"/>' +
-                        '<span class="balloon-death">151 </span>' +
-                        '<img class="balloon-header image" src="images/map_popup_woman.png"/>' +
-                        '<span class="balloon-death">211 </span>' +
-                    '</div>' +
-                    '<span class="balloon-description child">Из них старше 60 лет: 147</span>' +
-                    '<div class="balloon-header">' +
-                        '<span class="balloon-born">Родилось: </span>' +
-                        '<img class="balloon-header image" src="images/map_popup_girl.png"/>' +
-                        '<span class="balloon-born">231 </span>' +
-                        '<img class="balloon-header image" src="images/map_popup_boy.png"/>' +
-                        '<span class="balloon-born">198 </span>' +
+                    '<div class="balloon-title">Динамика онкологических заболеваний</div>' +
+                    '<span class="balloon-description">Финансирование в год (млн. р.):</span>' +
+                    '<div class="h-wrapper">' +
+                        '<div class="h-bars">' +
+                            '<div class="h-bar up blue" style="height: 65%"><span>71</span></div>' +
+                            '<div class="h-bar up blue" style="height: 78%"><span>82</span></div>' +
+                            '<div class="h-bar up blue" style="height: 84%"><span>93</span></div>' +
+                        '</div>' +
+                        '<div class="date-wrapper">' +
+                            '<div class="date">2020</div>' +
+                            '<div class="date">2021</div>' +
+                            '<div class="date">2023</div>' +
+                        '</div>' +
                     '</div>',
 
                 balloonContentBody:
-                    '<div class="h-wrapper">' +
+                    '<span class="balloon-description">Охват граждан:</span>' +
+                        '<div class="h-wrapper">' +
                         '<div class="h-bars">' +
-                            '<div class="h-bar up" style="height: 40%"><span>60</span></div>' +
-                            '<div class="h-bar up" style="height: 37%"><span>56</span></div>' +
-                            '<div class="h-bar up" style="height: 28%"><span>42</span></div>' +
-                            '<div class="h-bar up" style="height: 24%"><span>34</span></div>' +
-                            '<div class="h-bar up" style="height: 77%"><span>89</span></div>' +
-                            '<div class="h-bar up" style="height: 14%"><span>32</span></div>' +
-                            '<div class="h-bar up" style="height: 87%"><span>83</span></div>' +
-                            '<div class="h-bar up" style="height: 44%"><span>64</span></div>' +
+                        '<div class="h-bar up orange" style="height: 56%"><span>+6%</span></div>' +
+                        '<div class="h-bar up orange" style="height: 59%"><span>+8%</span></div>' +
+                        '<div class="h-bar up orange" style="height: 63%"><span>+11%</span></div>' +
                         '</div>' +
                         '<div class="date-wrapper">' +
-                            '<div class="date">1 января</div>' +
-                            '<div class="date">29 марта</div>' +
+                        '<div class="date">2020</div>' +
+                        '<div class="date">2021</div>' +
+                        '<div class="date">2022</div>' +
+                    '</div>' +
                         '</div>' +
-                        '<div class="h-bars reverse">' +
-                            '<div class="h-bar down" style="height: 32%"><span>23</span></div>' +
-                            '<div class="h-bar down" style="height: 77%"><span>78</span></div>' +
-                            '<div class="h-bar down" style="height: 28%"><span>31</span></div>' +
-                            '<div class="h-bar down" style="height: 48%"><span>47</span></div>' +
-                            '<div class="h-bar down" style="height: 14%"><span>20</span></div>' +
-                            '<div class="h-bar down" style="height: 87%"><span>87</span></div>' +
-                            '<div class="h-bar down" style="height: 17%"><span>16</span></div>' +
-                            '<div class="h-bar down" style="height: 24%"><span>37</span></div>' +
+                    '<span class="balloon-description">Статистика выявленных:</span>' +
+                    '<div class="h-wrapper">' +
+                        '<div class="h-bars">' +
+                            '<div class="h-bar up" style="height: 85%"><span>712</span></div>' +
+                            '<div class="h-bar up" style="height: 68%"><span>651</span></div>' +
+                            '<div class="h-bar up" style="height: 24%"><span>127</span></div>' +
+                        '</div>' +
+                        '<div class="date-wrapper">' +
+                            '<div class="date">2018</div>' +
+                            '<div class="date">2019</div>' +
+                            '<div class="date">Текущий год</div>' +
                         '</div>' +
                     '</div>',
-                    hintContent: 'Статистика по калининскому району',
-                    iconContent: '691'
+                    hintContent: 'Городская больница №2',
+                    iconContent: '653'
                 },
                 {
                     iconLayout: 'default#imageWithContent',
                     iconImageHref: 'images/map_circle.png',
                     iconImageSize: [64, 64],
                     iconImageOffset: [0, 0],
-                    iconContentOffset: [13, 23],
-                    iconContentLayout: mosContentLayout
+                    iconContentOffset: [8, 23],
+                    iconContentLayout: calinContentLayout
                 });
 
         // Кластер

@@ -51,10 +51,6 @@
                 }
             });
 
-        button.onClick = function() {
-            alert('hello');
-        };
-
         yMap.controls.add(button, {
             right: 5,
             top: 5
@@ -270,20 +266,20 @@
                         '</div>' +
                     '</div>',
                 hintContent: 'Статистика по московскому району',
-                iconContent: '151'
+                iconContent: '<text class="mark-icon-content">151</text>'
             },
             {
                 iconLayout: 'default#imageWithContent',
                 iconImageHref: 'images/map_circle.png',
                 iconImageSize: [64, 64],
                 iconImageOffset: [0, 0],
-                iconContentOffset: [13, 23],
+                iconContentOffset: [8, 23],
                 iconContentLayout: mosContentLayout
             });
 
         // Ленинский 
         var leninMarkPosition = [56.105366, 47.235104];
-        mosContentLayout = ymaps.templateLayoutFactory.createClass(
+        leninContentLayout = ymaps.templateLayoutFactory.createClass(
                 '<div class="mark">' +
                     '<img class="mark-row" src="images/map_arrow_up.png"/>' +
                     '$[properties.iconContent]' +
@@ -345,13 +341,13 @@
                     iconImageHref: 'images/map_circle.png',
                     iconImageSize: [64, 64],
                     iconImageOffset: [0, 0],
-                    iconContentOffset: [13, 23],
-                    iconContentLayout: mosContentLayout
+                    iconContentOffset: [8, 23],
+                    iconContentLayout: leninContentLayout
                 });
 
         // Калининский
         var calinMarkPosition = [56.126387, 47.311333];
-        mosContentLayout = ymaps.templateLayoutFactory.createClass(
+        calinContentLayout = ymaps.templateLayoutFactory.createClass(
                 '<div class="mark">' +
                     '<img class="mark-row" src="images/map_arrow_up.png"/>' +
                     '$[properties.iconContent]' +
@@ -414,8 +410,8 @@
                     iconImageHref: 'images/map_circle.png',
                     iconImageSize: [64, 64],
                     iconImageOffset: [0, 0],
-                    iconContentOffset: [13, 23],
-                    iconContentLayout: mosContentLayout
+                    iconContentOffset: [8, 23],
+                    iconContentLayout: calinContentLayout
                 });
 
         // Кластер

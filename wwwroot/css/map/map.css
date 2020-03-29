@@ -1,16 +1,14 @@
-﻿hr {
-    background-color: #BDBDBD;
-}
+﻿
 .mark {
-    color: #000000;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
+    font-weight: 600;
+    background-color: #ffffff;
+    border-radius: 2px;
+    width: 48px;
 }
 .mark-row {
     width: 12px;
     height: 12px;
-    margin-right: 2px
+    margin-right: 4px
 }
 .balloon-title {
     color: #424242;
@@ -34,7 +32,7 @@
     margin-top: 16px;
     display: flex;
     flex-direction: row;
-    margin-top: 2px;
+    margin-top: 8px;
     align-items: baseline;
 }
 .balloon-header.image {
@@ -116,7 +114,12 @@
     position: relative;
     opacity: .8;
 }
-
+.h-bar.up.blue {
+    background-color: #2196F3 !important;
+}
+.h-bar.up.orange {
+    background-color: #FF5722 !important;
+}
 .h-bar.up span {
     display: inline-block;
     position: absolute;
