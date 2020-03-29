@@ -7,45 +7,55 @@
         .ID("chart2")
         .Animation(true)
         .Palette(VizPalette.HarmonyLight)
-        //.Title("Продолжительность жизни")
+        .Title("График \"Результат реализации мероприятий по проведению дополнительных скринингов лицам старше 65 лет\"")
         .ArgumentAxis(a => a
             .Label(l => l
                 .OverlappingBehavior(OverlappingBehavior.Stagger)
             )
         )
+        .ScrollBar(s => s.Visible(true))
+        .ZoomAndPan(z => z.ArgumentAxis(ChartZoomAndPanMode.Zoom))
+        .Export(e => e.Enabled(true))
         .Tooltip(t => t
-            .Enabled(true)
-            .Shared(true)
-            .CustomizeTooltip(
-                        @<text>
-                            function(info) {
-                            console.info(info);
-                            return {
-                            html: "<div><div class='tooltip-header'>" +
-                                    info.argumentText + "</div>" +
-                                    "<div class='tooltip-body'><div class='series-name'>" +
-                                        (info.points[0].seriesName != null ? info.points[0].seriesName : '') +
-                                        ":</div><div class='value-text'>" +
-                                        (info.points[0].valueText != null ?info.points[0].valueText:'') +
-                                        "</div><div class='series-name'>" +
-                                         (info.points[1] != null ? info.points[1].seriesName  + ":": '') +
-                                        "</div><div class='value-text'>" +
-                                        (info.points[1] != null ?info.points[1].valueText:'') +
-                                        "</div><div class='series-name'>" +
-                                         (info.points[2] != null ? info.points[2].seriesName + ":" : '') +
-                                        "</div><div class='value-text'>" +
-                                        (info.points[2] != null ?info.points[2].valueText:'') +
-                                        @*"<span class='caption'>События</span>: <%- info.data.Capital %>"*@
-                                        "</div></div></div>"
-                            };
-                            }
-                        </text>)
+            .Enabled(false)
     )
     .OnPointClick(@<text>
         function(e) {
             var point = e.target;
-            point.showTooltip();
-            @*$("#region").dxSelectBox("option", "value", point.argument);*@
+            var popup = $("#popup").dxPopup(
+                                   {
+                                                    width: 300,
+                                                    height: 350,
+                                                    contentTemplate: function() {
+                                                        return $("<div />").append(                                                                                     
+                                                             $("<div><b>Финансирование:</b><br>Cейчас: " +
+                                                                        (point.data.budjetFact != null ?point.data.budjetFact:'') + "</div>" +
+                                                                        
+                                                                        "<div>Планируется: " +
+                                                                        (point.data.budjetPlan != null ?point.data.budjetPlan:'') + "</div>" +
+
+                                                                        "<div><b>Средний возраст</b><br>Cейчас: " +
+                                                                        (point.data.factPeaplePercent != null ?point.data.factPeaplePercent:'') +
+
+                                                                        "</div><div>Планируется: " +
+                                                                        (point.data.planPeaplePercent != null ?point.data.planPeaplePercent:'') + "</div>" +
+
+                                                                        "<div><br><b>События:</b> " + (point.data.events != null ? point.data.events : '') + "</div>")
+                                                        ).dxScrollView({
+                                                            width: '100%',
+                                                            height: '100%'
+                                                        });
+
+                                                    },
+                                                    showTitle: true,
+                                                    title: point.argument,
+                                                    visible: false,
+                                                    dragEnabled: false,
+                                                    closeOnOutsideClick: true
+                                            }         
+            ).dxPopup("instance");
+
+            popup.show();
         }
     </text>)
     .ValueAxis(a =>
@@ -63,9 +73,17 @@
                 </text>)
             );
     a.Add()
-        .Name("age")
+        .Name("peapleCount")
         .Position(Position.Left)
-        .ShowZero(false);            
+        .ShowZero(false)
+        .Label(l => l
+            .CustomizeText(
+                @<text>
+                    function(info) {
+                        return info.valueText + " %";
+                    }
+                </text>)
+            );
     })
     .CommonSeriesSettings(s => s
         .ArgumentField("year")
@@ -74,27 +92,34 @@
                             {
         s.Add()
             .Type(SeriesType.Bar)
-            .ValueField("budjet")
+            .ValueField("budjetFact")
             .Axis("budjet")
-            .Name("Финансирование, млн/р")
+            .Name("Финансирование (факт), млн/р")
             .Color("#6f42c1");
         s.Add()
-            .Type(SeriesType.Spline)
-            .ValueField("factAge")
-            .Axis("age")
-            .Name("Фактический показатель, возраст")
-            .Color("#6b71c3");
+            .Type(SeriesType.Bar)
+            .ValueField("budjetPlan")
+            .Axis("budjet")
+            .Name("Финансирование (план), млн/р")
+            .Color("#20c997");
         s.Add()
             .Type(SeriesType.Spline)
-            .ValueField("planDate")
-            .Axis("age")
-            .Name("Планируемый показатель, возраст")
+            .ValueField("factPeaplePercent")
+            .Axis("peapleCount")
+            .Name("Фактический показатель, % охвата граждан")
+            .Color("#c9203f");
+        s.Add()
+            .Type(SeriesType.Spline)
+            .ValueField("planPeaplePercent")
+            .Axis("peapleCount")
+            .Name("Планируемый показатель, % охвата граждан")
             .Color("#fac29a");
     })
     .Legend(l => l
-        .VerticalAlignment(VerticalEdge.Top)
+        .VerticalAlignment(VerticalEdge.Bottom)
         .HorizontalAlignment(HorizontalAlignment.Center)
     )
     .DataSource(d => d.Mvc().Controller("ChartsDemograph2").LoadAction("GetComplaintsData"))
     )
 </div>
+<div id="popup"></div>

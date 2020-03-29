@@ -36,9 +36,10 @@ namespace NationalProject.Controllers
                 dataSource.Add(new
                 {
                     item.year,
-                    item.budjet,
+                    item.budjetPlan,
+                    item.budjetFact,
                     item.factAge,
-                    item.planDate,
+                    item.planAge,
                     item.events
                 });
             }
